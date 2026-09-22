@@ -1,0 +1,2291 @@
+/* Shared section architecture — one question, one hierarchy, one evidence path. */
+.ritfit-next-page {
+  --rf-chapter-page: #FFFFFF;
+  --rf-chapter-subtle: #F9FAFB;
+  --rf-chapter-text: #1D1D1F;
+  --rf-chapter-muted: #4F4F4F;
+  --rf-chapter-line: #C4C4C4;
+}
+
+.ritfit-system-page {
+  --rf-chapter-page: var(--rf-color-page);
+  --rf-chapter-subtle: var(--rf-color-section);
+  --rf-chapter-text: var(--rf-color-text);
+  --rf-chapter-muted: var(--rf-color-text-secondary);
+  --rf-chapter-line: var(--rf-color-border);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .section {
+  padding-block: var(--rf-section-gap);
+  color: var(--rf-chapter-text);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) :is(#included, #experiences, #specs, #compare, #reviews, #setup) {
+  background: var(--rf-chapter-subtle);
+  color: var(--rf-chapter-text);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) :is(#features, #details, #specifications, #shipping, #faq) {
+  background: var(--rf-chapter-page);
+  color: var(--rf-chapter-text);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(320px, 7fr);
+  align-items: end;
+  gap: var(--rf-space-9);
+  margin-bottom: var(--rf-space-9);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .section-heading > div {
+  padding-left: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .section-heading .eyebrow {
+  margin-bottom: var(--rf-space-4);
+  color: var(--rf-color-brand);
+  font-size: var(--rf-size-label);
+  font-weight: var(--rf-weight-semibold);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .section-heading h2 {
+  max-width: 16ch;
+  color: var(--rf-chapter-text);
+  font-size: var(--rf-size-h2);
+  font-weight: var(--rf-weight-bold);
+  line-height: var(--rf-leading-heading);
+  letter-spacing: var(--rf-tracking-heading);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .section-heading > p {
+  max-width: 58ch;
+  padding-top: 0;
+  color: var(--rf-chapter-muted);
+  font-size: var(--rf-size-body);
+  line-height: var(--rf-leading-body);
+}
+
+/* Three primary capabilities: calm, sequential evidence rows. */
+:is(.ritfit-next-page, .ritfit-system-page) #features .section-heading {
+  grid-template-columns: 1fr;
+  gap: var(--rf-space-5);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .section-heading h2 {
+  max-width: 19ch;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .section-heading > p {
+  max-width: var(--rf-reading-max);
+  margin-bottom: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .stats {
+  margin: 0 0 var(--rf-space-10);
+  padding-block: var(--rf-space-6);
+  border-block: 1px solid var(--rf-chapter-line);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .stat {
+  padding-inline: var(--rf-space-7);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features :is(.feature-grid, .rf-more-grid) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rf-space-10);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .feature-card {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(360px, 3fr);
+  grid-template-rows: 1fr 1fr;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--rf-space-3) clamp(var(--rf-space-10), 6vw, var(--rf-space-12));
+  padding: 0 0 var(--rf-space-10);
+  border-bottom: 1px solid var(--rf-chapter-line);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .feature-card:nth-child(even) {
+  grid-template-columns: minmax(360px, 3fr) minmax(0, 5fr);
+}
+
+:is(body.ritfit-next-page, body.ritfit-system-page) #features :is(.feature-grid, .rf-more-grid) > .feature-card .feature-media {
+  grid-row: 1 / 3;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 1000px;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-product);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .feature-card :is(video, img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .feature-card h3 {
+  align-self: end;
+  margin: 0;
+  color: var(--rf-chapter-text);
+  font-size: var(--rf-size-h5);
+  line-height: var(--rf-leading-heading);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .feature-card p {
+  align-self: start;
+  max-width: 52ch;
+  margin: 0;
+  color: var(--rf-chapter-muted);
+  font-size: var(--rf-size-body);
+  line-height: var(--rf-leading-body);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .feature-card:nth-child(even) .feature-media {
+  grid-column: 2;
+  justify-self: end;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features .feature-card:nth-child(even) :is(h3, p) {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #features :is(.feature-grid, .rf-more-grid) > .feature-card:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-more-content {
+  margin-top: var(--rf-space-9);
+  border-top: 1px solid var(--rf-chapter-line);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-more-content > summary {
+  min-height: 56px;
+  padding-block: var(--rf-space-6);
+  color: var(--rf-chapter-text);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-more-content[open] > .rf-more-grid {
+  padding-top: var(--rf-space-9);
+}
+
+/* Real homes: only three peers, with one consistent media ratio. */
+:is(.ritfit-next-page, .ritfit-system-page) #experiences .section-heading {
+  grid-template-columns: 1fr;
+  gap: var(--rf-space-5);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #experiences .section-heading h2 {
+  max-width: 19ch;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #experiences .section-heading > p {
+  max-width: var(--rf-reading-max);
+  margin: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #experiences .video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--rf-space-7);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #experiences .video-card {
+  color: var(--rf-chapter-text);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #experiences .video-preview {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--rf-radius);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #experiences .video-card h3 {
+  margin: var(--rf-space-5) 0 var(--rf-space-1);
+  color: var(--rf-chapter-text);
+  font-size: var(--rf-size-compact);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #experiences .video-card p {
+  color: var(--rf-chapter-muted);
+  font-size: var(--rf-size-label);
+}
+
+/* Four engineering proof points: two calm technical rows per column. */
+:is(.ritfit-next-page, .ritfit-system-page) #details :is(.detail-grid, .rf-more-grid) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--rf-space-9) var(--rf-space-7);
+  border-top: 1px solid var(--rf-chapter-line);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #details .feature-card {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: var(--rf-space-2) var(--rf-space-6);
+  padding-top: var(--rf-space-6);
+  border: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #details .feature-media {
+  grid-row: 1 / 3;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--rf-radius);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #details .feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #details .feature-card h3 {
+  margin: var(--rf-space-2) 0 0;
+  color: var(--rf-chapter-text);
+  font-size: var(--rf-size-h5);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #details .feature-card p {
+  color: var(--rf-chapter-muted);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-body);
+}
+
+/* Space planning: one visual, one complementary decision summary. */
+:is(.ritfit-next-page, .ritfit-system-page) #specs .space-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(280px, 4fr);
+  gap: var(--rf-space-10);
+  align-items: stretch;
+  margin-bottom: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .space-visual {
+  overflow: hidden;
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-product);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .space-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: normal;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-summary {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--rf-space-7) 0;
+  border-block: 1px solid var(--rf-color-border-subtle);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-summary-intro {
+  max-width: 32ch;
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-body);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .space-values {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: var(--rf-space-5) 0 0;
+  border-top: 1px solid var(--rf-color-border-subtle);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .space-values > div {
+  min-width: 0;
+  padding: var(--rf-space-4) 0;
+  border-bottom: 1px solid var(--rf-color-border-subtle);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .space-values dt {
+  color: var(--rf-color-text-tertiary);
+  font-size: var(--rf-size-label);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .space-values dd {
+  margin: 2px 0 0;
+  color: var(--rf-color-text);
+  font-size: clamp(24px, 2vw, 32px);
+  font-weight: var(--rf-weight-bold);
+  letter-spacing: var(--rf-tracking-heading);
+  line-height: var(--rf-leading-heading);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-footprint {
+  margin-top: auto;
+  padding-top: var(--rf-space-5);
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-label);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-footprint strong,
+:is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-footprint span {
+  display: block;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-footprint strong {
+  color: var(--rf-color-text);
+  font-weight: var(--rf-weight-semibold);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-footprint span {
+  margin-top: var(--rf-space-1);
+}
+
+@media (max-width: 1000px) {
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-layout {
+    grid-template-columns: 1fr;
+    gap: var(--rf-space-7);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-summary {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(0, 2fr);
+    gap: var(--rf-space-7);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    border-top: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-values > div {
+    padding: 0 var(--rf-space-5);
+    border-right: 1px solid var(--rf-color-border-subtle);
+    border-bottom: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-values > div:first-child {
+    padding-left: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-values > div:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-footprint {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-layout {
+    gap: var(--rf-space-5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-summary {
+    display: block;
+    padding: var(--rf-space-5) 0 0;
+    border-top: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-summary-intro {
+    max-width: none;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: var(--rf-space-5);
+    padding-block: var(--rf-space-4);
+    border-block: 1px solid var(--rf-color-border-subtle);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-values > div,
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-values > div:first-child {
+    padding: 0 var(--rf-space-3);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .space-values dd {
+    font-size: 22px;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #specs .rf-space-footprint {
+    padding-top: var(--rf-space-4);
+  }
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #specifications .spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--rf-space-9);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .reviews-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--rf-space-4);
+}
+
+/* Reviews: compact evidence, not another wall of oversized media cards. */
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(420px, 5fr);
+  gap: 0 var(--rf-space-9);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews.section {
+  padding-block: clamp(56px, 5vw, 72px);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .section-heading {
+  display: block;
+  margin-bottom: var(--rf-space-7);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .section-heading h2 {
+  max-width: 22ch;
+  font-size: clamp(34px, 3vw, 48px);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .reviews-heading {
+  align-self: end;
+  margin: 0 0 var(--rf-space-7);
+  padding-bottom: var(--rf-space-1);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .rating-large strong {
+  font-size: clamp(42px, 4vw, 64px);
+  font-variant-numeric: tabular-nums;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .reviews-grid,
+:is(.ritfit-next-page, .ritfit-system-page) #reviews :is(#review-empty, .review-actions) {
+  grid-column: 1 / -1;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review {
+  padding: var(--rf-space-6);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--rf-space-5);
+  margin-top: var(--rf-space-4);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review.has-media .review-content {
+  grid-template-columns: clamp(120px, 13vw, 176px) minmax(0, 1fr);
+  align-items: start;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: calc(var(--rf-radius) - 2px);
+  background: var(--rf-color-product);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review-image {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(29, 29, 31, .82);
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  text-indent: 2px;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review-video-label {
+  position: absolute;
+  left: var(--rf-space-2);
+  bottom: var(--rf-space-2);
+  padding: 2px 6px;
+  color: #fff;
+  background: rgba(29, 29, 31, .78);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review-copy {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review .review-body {
+  margin: 0 0 var(--rf-space-5);
+  font-size: var(--rf-size-compact);
+  line-height: 1.65;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #reviews .review-meta {
+  margin-top: auto;
+}
+
+@media (max-width: 1000px) {
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .wrap {
+    grid-template-columns: 1fr;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .reviews-heading {
+    margin-top: calc(var(--rf-space-3) * -1);
+  }
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .reviews-heading {
+    display: grid;
+    width: 100%;
+    gap: var(--rf-space-5);
+    align-self: auto;
+    margin: 0 0 var(--rf-space-6);
+    padding-bottom: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .rating-large {
+    gap: var(--rf-space-4);
+    align-items: center;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .rating-large > strong {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .rating-large > div {
+    display: grid;
+    gap: var(--rf-space-1);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .rating-large :is(.stars, p) {
+    line-height: 1.35;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .review-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: var(--rf-space-2);
+    margin-top: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .review-controls select {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0 var(--rf-space-4);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .review.has-media .review-content {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: var(--rf-space-4);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .review {
+    padding: var(--rf-space-5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .review-media {
+    aspect-ratio: 1 / 1;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .review-video-label {
+    display: none;
+  }
+}
+
+/* Delivery: visual carton dimensions replace the primary data-table experience. */
+:is(.ritfit-next-page, .ritfit-system-page) #shipping .shipping-boxes {
+  margin-bottom: var(--rf-space-7);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer {
+  display: grid;
+  grid-template-columns: minmax(260px, 4fr) minmax(0, 8fr);
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid var(--rf-color-border-subtle);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-surface);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-index {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border-right: 1px solid var(--rf-color-border-subtle);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-index-head,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-view-head {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rf-space-5);
+  padding: var(--rf-space-5) var(--rf-space-6);
+  border-bottom: 1px solid var(--rf-color-border-subtle);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-index-head p,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-index-head span,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-view-head > strong,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-view-head span {
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-label);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-index-head p {
+  color: var(--rf-color-text);
+  font-weight: var(--rf-weight-semibold);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  width: 100%;
+  min-height: 74px;
+  padding: var(--rf-space-5) var(--rf-space-6);
+  border: 0;
+  border-bottom: 1px solid var(--rf-color-border-subtle);
+  background: transparent;
+  color: var(--rf-color-text);
+  text-align: left;
+  transition: background var(--rf-duration-fast) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button::before {
+  position: absolute;
+  inset: auto 0 0;
+  width: auto;
+  height: 3px;
+  background: var(--rf-color-brand);
+  content: '';
+  opacity: 0;
+  transform: scaleX(.25);
+  transition: opacity var(--rf-duration-fast) var(--rf-ease), transform var(--rf-duration-normal) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button:hover {
+  background: var(--rf-color-section);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button.selected {
+  background: var(--rf-color-product);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button.selected::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button > span {
+  grid-row: 1 / 3;
+  color: var(--rf-color-brand);
+  font-size: var(--rf-size-label);
+  font-weight: var(--rf-weight-semibold);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button strong {
+  overflow: hidden;
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button small {
+  overflow: hidden;
+  margin-top: var(--rf-space-1);
+  color: var(--rf-color-text-tertiary);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-view {
+  min-width: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-view-head h3 {
+  margin-top: 2px;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-h5);
+  letter-spacing: var(--rf-tracking-heading);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-view-head > strong {
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-body);
+  white-space: nowrap;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-drawing {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(210px, 5fr);
+  gap: var(--rf-space-5);
+  min-height: 378px;
+  padding: var(--rf-space-6);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-projection-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--rf-space-5);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-projection {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 0;
+  padding: var(--rf-space-4);
+  border: 1px solid var(--rf-color-border-subtle);
+  border-radius: var(--rf-radius-sm);
+  background: var(--rf-color-section);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-projection-label {
+  color: var(--rf-color-text-tertiary);
+  font-size: 10px;
+  font-weight: var(--rf-weight-semibold);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-projection-field {
+  position: relative;
+  min-height: 80px;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-projection-field::after {
+  position: absolute;
+  right: var(--rf-space-2);
+  bottom: 0;
+  left: var(--rf-space-2);
+  height: 1px;
+  background: var(--rf-color-border);
+  content: '';
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-projection-field i {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  width: var(--rf-box-x, 60%);
+  height: var(--rf-box-y, 30%);
+  border: 1.5px solid var(--rf-color-text);
+  background: color-mix(in srgb, var(--rf-color-text) 4%, transparent);
+  transform: translateX(-50%);
+  transform-origin: 50% 100%;
+  transition: width var(--rf-duration-expand) var(--rf-ease), height var(--rf-duration-expand) var(--rf-ease), border-color var(--rf-duration-fast) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-projection-front .rf-projection-field i {
+  border-color: var(--rf-color-brand);
+  background: color-mix(in srgb, var(--rf-color-brand) 5%, transparent);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-projection strong {
+  padding-top: var(--rf-space-2);
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-label);
+  font-weight: var(--rf-weight-semibold);
+  text-align: center;
+  transition: opacity var(--rf-duration-fast) var(--rf-ease), transform var(--rf-duration-fast) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-measures {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--rf-color-border-subtle);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-measures > div {
+  padding: var(--rf-space-5) var(--rf-space-6);
+  border-right: 1px solid var(--rf-color-border-subtle);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-measures > div:last-child {
+  border-right: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-measures dt {
+  color: var(--rf-color-text-tertiary);
+  font-size: var(--rf-size-label);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-measures dd {
+  margin: var(--rf-space-1) 0 0;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-body-lg);
+  font-weight: var(--rf-weight-semibold);
+  transition: opacity var(--rf-duration-fast) var(--rf-ease), transform var(--rf-duration-fast) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer.is-changing :is(.rf-box-view-head h3, .rf-box-view-head > strong, .rf-projection strong, .rf-box-measures dd) {
+  opacity: .45;
+  transform: translateY(3px);
+}
+
+/* Five-at-a-time 2.5D carton scale with a compact shipment instrument panel. */
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer {
+  grid-template-columns: minmax(0, 8fr) minmax(300px, 4fr);
+  min-height: 500px;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-visual {
+  display: grid;
+  min-width: 0;
+  grid-template-rows: auto 1fr auto;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-visual-head {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rf-space-6);
+  padding: var(--rf-space-5) var(--rf-space-7);
+  border-bottom: 1px solid var(--rf-color-border-subtle);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-visual-head span,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-kicker,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected > span {
+  color: var(--rf-color-text-tertiary);
+  font-size: var(--rf-size-label);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-visual-head h3 {
+  margin-top: 2px;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-h5);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-pager {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-3);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-pager button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius-round);
+  background: transparent;
+  transition: border-color var(--rf-duration-fast) var(--rf-ease), color var(--rf-duration-fast) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-pager button:hover:not(:disabled) { border-color: var(--rf-color-text); }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-pager button:disabled {
+  color: var(--rf-color-text-tertiary);
+  opacity: .35;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage {
+  display: flex;
+  min-height: 350px;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--rf-space-5);
+  overflow-x: auto;
+  padding: var(--rf-space-10) var(--rf-space-7) var(--rf-space-8);
+  scrollbar-width: thin;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button {
+  display: grid;
+  width: clamp(110px, 9vw, 170px);
+  min-width: clamp(110px, 9vw, 170px);
+  max-width: 170px;
+  flex: 0 0 auto;
+  justify-items: center;
+  gap: var(--rf-space-2);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--rf-color-text);
+  text-align: center;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-number {
+  color: var(--rf-color-brand);
+  font-size: var(--rf-size-label);
+  font-weight: var(--rf-weight-semibold);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape {
+  display: flex;
+  width: 100%;
+  height: 180px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape svg {
+  width: var(--rf-carton-w);
+  max-width: 100%;
+  height: var(--rf-carton-h);
+  overflow: visible;
+  filter: drop-shadow(0 10px 7px rgb(0 0 0 / 8%));
+  transform-origin: 50% 100%;
+  transition: opacity var(--rf-duration-normal) var(--rf-ease), transform var(--rf-duration-normal) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape polygon,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape line {
+  vector-effect: non-scaling-stroke;
+  stroke: var(--rf-color-text);
+  stroke-width: 1;
+  transition: fill var(--rf-duration-normal) var(--rf-ease), stroke var(--rf-duration-normal) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-front { fill: #E7E3DC; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-top { fill: #F4F1EB; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-side { fill: #CFC9BF; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-tape { stroke: #A49D92; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:hover .rf-carton-shape svg,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-shape svg { transform: translateY(-8px); }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-front {
+  fill: var(--rf-color-brand);
+  stroke: var(--rf-color-brand);
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-top {
+  fill: #E53A4F;
+  stroke: var(--rf-color-brand);
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-side {
+  fill: #990014;
+  stroke: var(--rf-color-brand);
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-tape { stroke: rgb(255 255 255 / 75%); }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button strong {
+  max-width: 170px;
+  font-size: var(--rf-size-compact);
+  line-height: 1.35;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button small {
+  max-width: 170px;
+  color: var(--rf-color-text-tertiary);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-scale-note {
+  padding: var(--rf-space-4) var(--rf-space-7);
+  border-top: 1px solid var(--rf-color-border-subtle);
+  color: var(--rf-color-text-tertiary);
+  font-size: 11px;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-dashboard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: var(--rf-space-8);
+  background: var(--rf-color-text);
+  color: var(--rf-color-page);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-dashboard .rf-dashboard-kicker,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-dashboard .rf-dashboard-selected > span,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-dashboard dt,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-dashboard p,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-gauge span { color: rgb(255 255 255 / 58%); }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-total {
+  display: flex;
+  align-items: baseline;
+  gap: var(--rf-space-3);
+  margin: var(--rf-space-4) 0 var(--rf-space-7);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-total strong {
+  color: var(--rf-color-page);
+  font-size: clamp(56px, 5vw, 76px);
+  font-weight: var(--rf-weight-semibold);
+  line-height: .95;
+  letter-spacing: -.07em;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-total span {
+  color: rgb(255 255 255 / 70%);
+  font-size: var(--rf-size-label);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-stats {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-block: 1px solid rgb(255 255 255 / 18%);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-stats > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--rf-space-5);
+  padding-block: var(--rf-space-4);
+  border-bottom: 1px solid rgb(255 255 255 / 12%);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-stats > div:last-child { border-bottom: 0; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-stats dt { font-size: var(--rf-size-label); }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-stats dd {
+  margin: 0;
+  color: var(--rf-color-page);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected {
+  margin-top: auto;
+  padding-top: var(--rf-space-9);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--rf-space-5);
+  margin-top: var(--rf-space-2);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected h3,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected-head > strong { color: var(--rf-color-page); }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected h3 { font-size: var(--rf-size-h5); }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected-head > strong {
+  font-size: var(--rf-size-compact);
+  white-space: nowrap;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected > p {
+  margin: var(--rf-space-2) 0 var(--rf-space-6);
+  font-size: 11px;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-gauge + .rf-dashboard-gauge { margin-top: var(--rf-space-5); }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-gauge > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--rf-space-5);
+  margin-bottom: var(--rf-space-2);
+  font-size: 10px;
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-gauge > div strong { color: var(--rf-color-page); }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-gauge > i {
+  display: block;
+  height: 3px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 18%);
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-gauge b {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--rf-color-brand);
+  transition: width var(--rf-duration-expand) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer.is-changing .rf-carton-stage,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer.is-changing .rf-dashboard-selected {
+  opacity: .55;
+  transform: translateY(3px);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-dashboard-selected {
+  transition: opacity var(--rf-duration-fast) var(--rf-ease), transform var(--rf-duration-fast) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-shipping-data {
+  margin-top: var(--rf-space-5);
+  border-block: 1px solid var(--rf-color-border);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-shipping-data > summary {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-shipping-data > summary::after {
+  content: '+';
+  font-size: 20px;
+  font-weight: var(--rf-weight-regular);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-shipping-data[open] > summary::after {
+  content: '−';
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-shipping-data .shipping-panel {
+  padding: 0 0 var(--rf-space-7);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #shipping .shipping-head-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #faq .wrap {
+  display: grid;
+  grid-template-columns: minmax(280px, 5fr) minmax(0, 7fr);
+  gap: var(--rf-space-10);
+  align-items: start;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #faq .section-heading {
+  display: block;
+  margin-bottom: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) #faq .faq-layout {
+  width: 100%;
+  max-width: none;
+}
+
+@media (max-width: 1000px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .section-heading {
+    grid-template-columns: 1fr;
+    gap: var(--rf-space-5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #features .feature-card {
+    grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #features .feature-card:nth-child(even) {
+    grid-template-columns: minmax(260px, 2fr) minmax(0, 3fr);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #features .section-heading {
+    grid-template-columns: 1fr;
+    gap: var(--rf-space-5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #features .section-heading > p {
+    margin-bottom: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #faq .wrap {
+    grid-template-columns: minmax(240px, 4fr) minmax(0, 8fr);
+    gap: var(--rf-space-8);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #details .feature-card {
+    grid-template-columns: 140px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .section-heading {
+    margin-bottom: var(--rf-space-8);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .section-heading h2 {
+    font-size: var(--rf-size-h2);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #faq .wrap {
+    display: block;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #faq .section-heading {
+    margin-bottom: var(--rf-space-7);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #features .stats {
+    margin-bottom: var(--rf-space-9);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #features .feature-card,
+  :is(.ritfit-next-page, .ritfit-system-page) #features .feature-card:nth-child(even) {
+    display: block;
+    padding-bottom: var(--rf-space-9);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #features .feature-card .feature-media,
+  :is(.ritfit-next-page, .ritfit-system-page) #features .feature-card:nth-child(even) .feature-media {
+    margin-bottom: var(--rf-space-5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #features .feature-card h3 {
+    margin: 0 0 var(--rf-space-2);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #experiences .video-grid,
+  :is(.ritfit-next-page, .ritfit-system-page) #details :is(.detail-grid, .rf-more-grid),
+  :is(.ritfit-next-page, .ritfit-system-page) #specifications .spec-grid,
+  :is(.ritfit-next-page, .ritfit-system-page) #reviews .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #details .feature-card {
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #details .feature-card h3 {
+    font-size: var(--rf-size-h5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #shipping .shipping-head {
+    margin-bottom: var(--rf-space-5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #shipping .shipping-boxes {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer {
+    display: block;
+    min-height: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-index {
+    border-right: 0;
+    border-bottom: 1px solid var(--rf-color-border-subtle);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-list {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button {
+    min-width: 210px;
+    border-right: 1px solid var(--rf-color-border-subtle);
+    border-bottom: 0;
+    scroll-snap-align: start;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button::before {
+    inset: auto 0 0;
+    width: auto;
+    height: 3px;
+    transform: scaleX(.25);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-list button.selected::before {
+    transform: scaleX(1);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-view-head {
+    align-items: flex-end;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-view-head h3 {
+    font-size: var(--rf-size-h5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-drawing {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: var(--rf-space-5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-projection-front {
+    min-height: 250px;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-projection-stack {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-projection-stack .rf-projection {
+    min-height: 160px;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-measures {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-measures > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-measures > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--rf-color-border-subtle);
+  }
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-visual-head {
+    align-items: flex-start;
+    padding: var(--rf-space-5);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-pager {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage {
+    min-height: 320px;
+    justify-content: flex-start;
+    gap: var(--rf-space-6);
+    padding: var(--rf-space-9) var(--rf-space-5) var(--rf-space-7);
+    scroll-snap-type: x proximity;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button { scroll-snap-align: start; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-scale-note { padding-inline: var(--rf-space-5); }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-dashboard {
+    min-height: 440px;
+    padding: var(--rf-space-7) var(--rf-space-5);
+  }
+}
+
+/* Delivery v3 — one spatial 3D scene, with data anchored to the cartons. */
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer {
+  display: block;
+  min-height: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-shipment-scene {
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 16px;
+  background: #151515;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 12%);
+  color: #F7F6F2;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-main {
+  position: relative;
+  min-height: 610px;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 51% 46%, rgb(255 255 255 / 7%), transparent 42%),
+    #151515;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage {
+  position: absolute;
+  inset: 0;
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: var(--rf-carton-w);
+  min-width: 0;
+  max-width: 360px;
+  padding: 0;
+  color: #F7F6F2;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity var(--rf-duration-enter) var(--rf-ease-out),
+    transform var(--rf-duration-enter) var(--rf-ease-out),
+    filter var(--rf-duration-normal) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(1) { left: 47%; top: 22%; z-index: 3; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(2) { left: 36%; top: 46%; z-index: 4; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(3) { left: 59%; top: 51%; z-index: 5; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(4) { left: 43%; top: 72%; z-index: 6; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(5) { left: 55%; top: 75%; z-index: 7; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:hover,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected {
+  z-index: 9;
+  filter: brightness(1.08);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape svg {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  filter: drop-shadow(0 16px 11px rgb(0 0 0 / 38%));
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape polygon,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape line {
+  stroke: #66513A;
+  stroke-width: 1;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-front { fill: #B9915F; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-top { fill: #D2B07F; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-side { fill: #8D6A42; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-tape { stroke: #D9C29D; stroke-width: 2; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-logo { fill: #271D14; opacity: .66; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected :is(.rf-carton-front, .rf-carton-top, .rf-carton-side) {
+  stroke: var(--rf-color-brand);
+  stroke-width: 2;
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-front { fill: #B9915F; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-top { fill: #D2B07F; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-side { fill: #8D6A42; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-tape { stroke: #D9C29D; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-number {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  z-index: 3;
+  min-width: 24px;
+  padding: 3px 5px;
+  background: #202020;
+  color: #FFFFFF;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-number { background: var(--rf-color-brand); }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-caption {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: max-content;
+  max-width: 190px;
+  padding: 7px 9px;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: var(--rf-radius-sm);
+  background: rgb(21 21 21 / 92%);
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  transform: translate(-50%, -4px);
+  transition: opacity var(--rf-duration-fast) var(--rf-ease), transform var(--rf-duration-fast) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:is(:hover, :focus-visible) .rf-carton-caption {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-caption strong,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-caption small { display: block; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-caption strong { font-size: 11px; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-caption small { margin-top: 2px; color: rgb(255 255 255 / 58%); font-size: 9px; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-stat,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected {
+  position: absolute;
+  z-index: 12;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-stat span,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected > span {
+  display: block;
+  color: rgb(255 255 255 / 56%);
+  font-size: 11px;
+  font-weight: var(--rf-weight-semibold);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-stat strong,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-stat b,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected strong,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected b { display: block; color: #F7F6F2; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group { top: 98px; left: 5.5%; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group::after {
+  position: absolute;
+  top: -10px;
+  left: calc(100% + 24px);
+  width: 1px;
+  height: 118px;
+  background: rgb(255 255 255 / 46%);
+  content: '';
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group strong { margin-top: 8px; font-size: 18px; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group b { margin-top: 3px; font-size: 28px; line-height: 1; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total { bottom: 70px; left: 6%; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total::after {
+  position: absolute;
+  top: 24px;
+  left: calc(100% + 18px);
+  width: 86px;
+  height: 1px;
+  background: rgb(255 255 255 / 46%);
+  content: '';
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total strong { margin-top: 7px; font-size: clamp(28px, 2.3vw, 40px); letter-spacing: -.04em; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total b { margin-top: 3px; color: rgb(255 255 255 / 55%); font-size: 11px; font-weight: var(--rf-weight-medium); }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected { top: 92px; right: 4.5%; width: 24%; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected::before {
+  position: absolute;
+  top: 17px;
+  right: calc(100% + 16px);
+  width: 92px;
+  height: 1px;
+  background: var(--rf-color-brand);
+  content: '';
+  transform: rotate(-22deg);
+  transform-origin: right center;
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected h3 { margin-top: 8px; color: #F7F6F2; font-size: var(--rf-size-h5); }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected strong { margin-top: 12px; font-size: clamp(19px, 2vw, 30px); letter-spacing: -.03em; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected b { margin-top: 8px; font-size: var(--rf-size-body-lg); }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-scale-note {
+  position: absolute;
+  right: 4.5%;
+  bottom: 44px;
+  z-index: 12;
+  padding: 0;
+  border: 0;
+  color: rgb(255 255 255 / 40%);
+  font-size: 10px;
+  letter-spacing: .04em;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-controls {
+  display: flex;
+  min-height: 86px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rf-space-7);
+  padding: var(--rf-space-5) var(--rf-space-7);
+  border-top: 1px solid rgb(255 255 255 / 13%);
+  background: #181818;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot { min-width: 0; flex: 1; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(130px, 1fr));
+  gap: var(--rf-space-3);
+  max-width: 680px;
+  margin: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes button {
+  min-height: 52px;
+  border-color: rgb(255 255 255 / 24%);
+  border-radius: var(--rf-radius);
+  background: transparent;
+  color: rgb(255 255 255 / 72%);
+  transition: border-color var(--rf-duration-normal) var(--rf-ease), color var(--rf-duration-normal) var(--rf-ease), background var(--rf-duration-normal) var(--rf-ease);
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes button.selected {
+  border-color: var(--rf-color-brand);
+  background: rgb(205 0 26 / 8%);
+  color: #FFFFFF;
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes small { color: rgb(255 255 255 / 45%); }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-controls .rf-carton-pager { flex: 0 0 auto; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-controls .rf-carton-pager span { min-width: 92px; color: #F7F6F2; text-align: center; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-controls .rf-carton-pager button { border-color: rgb(255 255 255 / 18%); color: #F7F6F2; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer.is-leaving .rf-carton-stage button,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer.is-entering .rf-carton-stage button {
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + var(--rf-scene-shift))) scale(.97);
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer.is-leaving :is(.rf-scene-stat, .rf-scene-selected),
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer.is-entering :is(.rf-scene-stat, .rf-scene-selected) { opacity: 0; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-stat,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected { transition: opacity var(--rf-duration-normal) var(--rf-ease); }
+
+@media (max-width: 1000px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-main { min-height: 570px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button { max-width: 285px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group { left: 4%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected { right: 3%; width: 26%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected::before { width: 52px; }
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-shipment-scene { border-radius: var(--rf-radius); }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-main { min-height: 560px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button { max-width: 210px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(1) { left: 49%; top: 29%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(2) { left: 36%; top: 47%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(3) { left: 64%; top: 50%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(4) { left: 42%; top: 65%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:nth-child(5) { left: 61%; top: 68%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group { top: 22px; left: 20px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group::after { display: none; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group strong { font-size: 13px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group b { font-size: 20px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total { bottom: 34px; left: 20px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total::after { display: none; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total strong { font-size: 24px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected { top: 22px; right: 20px; width: 48%; text-align: right; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected::before { display: none; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected h3 { font-size: 14px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected strong { margin-top: 5px; font-size: 16px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected b { margin-top: 3px; font-size: 13px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-scale-note { right: 20px; bottom: 34px; max-width: 42%; text-align: right; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-caption { display: none; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-controls { flex-direction: column; align-items: stretch; padding: var(--rf-space-5); }
+  :is(.ritfit-next-page, .ritfit-system-page) #shipping .rf-scene-package-slot .shipping-boxes { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes button { min-height: 48px; padding: 8px 6px; font-size: 11px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes small { font-size: 9px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-controls .rf-carton-pager { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer *,
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer *::before,
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer *::after {
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Photo ↔ 3D gallery choreography. The configurator keeps its state while photo-only media yields space. */
+:is(.ritfit-system-page, .ritfit-next-page) .gallery-stage {
+  transition: height var(--rf-duration-expand, 300ms) var(--rf-ease, cubic-bezier(.4, 0, .2, 1));
+}
+:is(.ritfit-system-page, .ritfit-next-page) .thumbs {
+  max-height: 96px;
+  overflow: hidden;
+  opacity: 1;
+  transform: translateY(0);
+  transform-origin: top center;
+  transition:
+    max-height var(--rf-duration-expand, 300ms) var(--rf-ease, cubic-bezier(.4, 0, .2, 1)),
+    opacity var(--rf-duration-fast, 150ms) var(--rf-ease, cubic-bezier(.4, 0, .2, 1)),
+    transform var(--rf-duration-expand, 300ms) var(--rf-ease, cubic-bezier(.4, 0, .2, 1)),
+    padding var(--rf-duration-expand, 300ms) var(--rf-ease, cubic-bezier(.4, 0, .2, 1)),
+    visibility 0s linear 0s;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .gallery.is-3d-mode .gallery-stage {
+  height: var(--rf-3d-expanded-height);
+}
+:is(.ritfit-system-page, .ritfit-next-page) .gallery.is-3d-mode .thumbs {
+  visibility: hidden;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition-delay: 0s, 0s, 0s, 0s, var(--rf-duration-expand, 300ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.ritfit-system-page, .ritfit-next-page) .gallery-stage,
+  :is(.ritfit-system-page, .ritfit-next-page) .thumbs { transition: none; }
+}
+
+/* Shipping asset study: carton bodies are transparent PNGs, never CSS/SVG geometry. */
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-asset-mode {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  z-index: 14;
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 999px;
+  background: rgb(21 21 21 / 78%);
+  backdrop-filter: blur(12px);
+  transform: translateX(-50%);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-asset-mode a {
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: rgb(255 255 255 / 56%);
+  font-size: 10px;
+  font-weight: var(--rf-weight-semibold);
+  letter-spacing: .04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color var(--rf-duration-fast) var(--rf-ease), background var(--rf-duration-fast) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-asset-mode a.selected {
+  background: #F7F6F2;
+  color: #151515;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-shape img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  filter: drop-shadow(0 18px 12px rgb(0 0 0 / 34%));
+  transform-origin: 50% 65%;
+  transition: filter var(--rf-duration-normal) var(--rf-ease), transform var(--rf-duration-normal) var(--rf-ease);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:hover .rf-carton-shape img,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-shape img {
+  transform: translateY(-8px);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-shape img {
+  filter:
+    drop-shadow(0 18px 12px rgb(0 0 0 / 34%))
+    drop-shadow(0 0 1px var(--rf-color-brand));
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-asset-mode { top: 116px; }
+}
+
+/* Keyed Magic Move: shared cartons travel; only added/removed cartons fade. */
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-carton-item {
+  transform:
+    translate(calc(-50% + var(--rf-flip-x, 0px)), calc(-50% + var(--rf-flip-y, 0px)))
+    scale(var(--rf-flip-scale, 1));
+  transition:
+    left 520ms var(--rf-ease-out),
+    top 520ms var(--rf-ease-out),
+    width 520ms var(--rf-ease-out),
+    opacity 360ms var(--rf-ease-out),
+    filter 360ms var(--rf-ease-out),
+    transform 520ms cubic-bezier(.22, 1, .36, 1);
+  will-change: transform, opacity;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-1 { left: 56%; top: 24%; z-index: 3; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-2 { left: 36%; top: 43%; z-index: 5; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-3 { left: 59%; top: 51%; z-index: 4; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-4 { left: 43%; top: 65%; z-index: 7; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-5 { left: 54%; top: 67%; z-index: 6; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.is-entering {
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 28px)) scale(.72) rotate(-2deg);
+  filter: blur(7px) brightness(1.12);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.is-exiting {
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, calc(-50% + 22px)) scale(.74) rotate(2deg);
+  filter: blur(6px) brightness(.82);
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-asset-mode {
+    top: auto;
+    bottom: 18px;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-1 { left: 55%; top: 30%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-2 { left: 35%; top: 46%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-3 { left: 62%; top: 53%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-4 { left: 42%; top: 63%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-5 { left: 57%; top: 65%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total { bottom: 82px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-scale-note { bottom: 82px; }
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer.is-changing .rf-carton-stage {
+  opacity: 1;
+  transform: none;
+}
+
+/* One-set shipment map: all cartons remain visible together. */
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-main { min-height: 760px; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-controls {
+  min-height: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 52px 24px;
+  border-top: 0;
+  border-left: 1px solid rgb(255 255 255 / 13%);
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot {
+  width: 100%;
+  flex: none;
+  margin-left: 0;
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-control-label {
+  display: block;
+  margin-bottom: 16px;
+  color: rgb(255 255 255 / 56%);
+  font-size: 11px;
+  font-weight: var(--rf-weight-semibold);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes {
+  grid-template-columns: 1fr;
+  max-width: none;
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes button {
+  min-height: 64px;
+  text-align: left;
+}
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button { max-width: 240px; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-1  { left: 32%; top: 36%; z-index: 3; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-2  { left: 50%; top: 36%; z-index: 3; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-3  { left: 68%; top: 36%; z-index: 3; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-4  { left: 30%; top: 53.5%; z-index: 4; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-5  { left: 42%; top: 53.5%; z-index: 4; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-6  { left: 54%; top: 53.5%; z-index: 4; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-7  { left: 66%; top: 53.5%; z-index: 4; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-8  { left: 33%; top: 69.5%; z-index: 5; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-9  { left: 44.33%; top: 69.5%; z-index: 5; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-10 { left: 55.67%; top: 69.5%; z-index: 5; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-11 { left: 67%; top: 69.5%; z-index: 5; }
+
+/* Desktop data rail: information first, no diagram-like decoration. */
+@media (min-width: 681px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group {
+    top: 72px;
+    left: 5.5%;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total {
+    top: 72px;
+    bottom: auto;
+    left: 20%;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total strong {
+    font-size: 28px;
+    line-height: 1;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected {
+    top: 66px;
+    right: 4.5%;
+    width: 28%;
+  }
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-group::after,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total::after,
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-selected::before {
+  display: none;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.selected .rf-carton-shape img {
+  transform: translateY(-3px);
+}
+
+@media (hover: hover) and (min-width: 681px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:hover { z-index: 20; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:hover .rf-carton-shape img {
+    filter:
+      drop-shadow(0 24px 18px rgb(0 0 0 / 46%))
+      drop-shadow(0 0 1px rgb(255 255 255 / 18%));
+    transform: translateY(-9px) scale(1.025) rotate(-.45deg);
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button:hover .rf-carton-number {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button { max-width: 190px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-1  { left: 50%; top: 18%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-2  { left: 50%; top: 28%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-3  { left: 50%; top: 38%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-4  { left: 27%; top: 49%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-5  { left: 73%; top: 49%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-6  { left: 22%; top: 60%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-7  { left: 78%; top: 60%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-8  { left: 27%; top: 71%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-9  { left: 73%; top: 71%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-10 { left: 27%; top: 82%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button.rf-slot-11 { left: 73%; top: 82%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-total { bottom: 88px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-scale-note { bottom: 88px; }
+}
+
+/* Delivery layout: a dedicated data rail and one unobstructed carton field. */
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-main {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) 260px;
+  min-height: 0;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data {
+  position: relative;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 52px 24px 44px 40px;
+  background: rgb(255 255 255 / 2%);
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data :is(.rf-scene-stat, .rf-scene-selected) {
+  position: static;
+  inset: auto;
+  width: auto;
+  text-align: left;
+}
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-total { margin-top: 44px; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected { margin-top: 58px; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-group strong { margin-top: 8px; font-size: 15px; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-group b { margin-top: 4px; font-size: 24px; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-total strong { margin-top: 8px; font-size: 30px; line-height: 1; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected h3 { margin-top: 8px; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected strong { margin-top: 10px; font-size: 20px; line-height: 1.2; }
+:is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected b { margin-top: 6px; font-size: 14px; }
+
+:is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage {
+  position: relative;
+  inset: auto;
+  min-height: 700px;
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-main {
+    grid-template-columns: 1fr;
+    min-height: 0 !important;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) #shipping .shipping-head > div {
+    grid-template-columns: 24px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 16px;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) #shipping .shipping-head-icon {
+    align-self: start;
+    margin-top: 0;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) #shipping .shipping-head strong {
+    margin: 0 0 4px;
+    line-height: 24px;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) #shipping .shipping-head p {
+    grid-column: 2;
+    margin: 0;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+    padding: 22px 20px 20px;
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-total { margin-top: 0; text-align: right; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 3px 16px;
+    margin-top: 0;
+    padding-top: 16px;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected > span { grid-column: 1 / -1; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected h3 { grid-column: 1; margin-top: 4px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected strong { grid-column: 1; margin-top: 3px; font-size: 15px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-selected b { grid-column: 2; grid-row: 2 / 4; margin-top: 0; font-size: 13px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-group strong { font-size: 12px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-group b { font-size: 20px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-data .rf-scene-total strong { font-size: 22px; }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage button { max-width: 180px; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-controls {
+    padding: var(--rf-space-5);
+    border-top: 1px solid rgb(255 255 255 / 13%);
+    border-left: 0;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-control-label { margin-bottom: 12px; }
+  :is(.ritfit-next-page, .ritfit-system-page) #shipping .rf-scene-package-slot .shipping-boxes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-scene-package-slot .shipping-boxes button {
+    min-height: 48px;
+    text-align: center;
+  }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-carton-stage {
+    height: 620px;
+    min-height: 620px;
+    contain: layout paint;
+  }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer[data-carton-count="7"] .rf-carton-stage button.rf-slot-1 { left: 50%; top: 14%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer[data-carton-count="7"] .rf-carton-stage button.rf-slot-2 { left: 50%; top: 29%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer[data-carton-count="7"] .rf-carton-stage button.rf-slot-3 { left: 50%; top: 44%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer[data-carton-count="7"] .rf-carton-stage button.rf-slot-4 { left: 27%; top: 63%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer[data-carton-count="7"] .rf-carton-stage button.rf-slot-5 { left: 73%; top: 63%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer[data-carton-count="7"] .rf-carton-stage button.rf-slot-6 { left: 27%; top: 82%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer[data-carton-count="7"] .rf-carton-stage button.rf-slot-7 { left: 73%; top: 82%; }
+
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-1 { left: 50%; top: 9%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-2 { left: 50%; top: 20%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-3 { left: 50%; top: 31%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-4 { left: 27%; top: 44%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-5 { left: 73%; top: 44%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-6 { left: 27%; top: 57%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-7 { left: 73%; top: 57%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-8 { left: 27%; top: 70%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-9 { left: 73%; top: 70%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer:is([data-carton-count="10"], [data-carton-count="11"]) .rf-carton-stage button.rf-slot-10 { left: 27%; top: 84%; }
+  :is(.ritfit-next-page, .ritfit-system-page) .rf-box-explorer[data-carton-count="11"] .rf-carton-stage button.rf-slot-11 { left: 73%; top: 84%; }
+}
+/* Production navigation parity — mirrors the live RitFit storefront header. */
+:is(.ritfit-system-page, .ritfit-next-page) .announcement {
+  min-height: 52px;
+  display: grid;
+  grid-template-columns: 44px auto 44px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .announcement a { justify-self: center; }
+:is(.ritfit-system-page, .ritfit-next-page) .announcement span { font-size: 28px; font-weight: 300; line-height: 1; }
+:is(.ritfit-system-page, .ritfit-next-page) .announcement span:last-child { justify-self: end; }
+
+:is(.ritfit-system-page, .ritfit-next-page) .header {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  height: 79px;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+  align-items: center;
+  gap: 40px;
+  padding: 0 54px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .logo { width: 145px; justify-self: start; }
+:is(.ritfit-system-page, .ritfit-next-page) .logo img { width: 145px; }
+:is(.ritfit-system-page, .ritfit-next-page) .logo::after { content: none; }
+:is(.ritfit-system-page, .ritfit-next-page) .main-nav {
+  width: min(914px, calc(100vw - 520px));
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(28px, 2.1vw, 40px);
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .main-nav > a,
+:is(.ritfit-system-page, .ritfit-next-page) .nav-item > a {
+  min-height: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  color: #090909;
+  font-size: inherit;
+  white-space: nowrap;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .main-nav a:hover { color: #d7263d; }
+:is(.ritfit-system-page, .ritfit-next-page) .nav-sale { gap: 7px; }
+:is(.ritfit-system-page, .ritfit-next-page) .nav-chevron {
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 160ms ease;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .nav-item { position: static; display: flex; align-items: stretch; }
+:is(.ritfit-system-page, .ritfit-next-page) .nav-item:hover .nav-chevron,
+:is(.ritfit-system-page, .ritfit-next-page) .nav-item:focus-within .nav-chevron { transform: translateY(2px) rotate(225deg); }
+:is(.ritfit-system-page, .ritfit-next-page) .head-actions { justify-self: end; gap: 4px; }
+:is(.ritfit-system-page, .ritfit-next-page) .head-actions .icon-button { width: 44px; height: 44px; }
+:is(.ritfit-system-page, .ritfit-next-page) .mobile-primary-actions { display: none; }
+
+:is(.ritfit-system-page, .ritfit-next-page) .nav-mega {
+  position: absolute;
+  z-index: 32;
+  top: 100%;
+  right: 18px;
+  left: 18px;
+  display: grid;
+  visibility: hidden;
+  border-top: 1px solid #e5e5e5;
+  background: #fff;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .nav-item:hover .nav-mega,
+:is(.ritfit-system-page, .ritfit-next-page) .nav-item:focus-within .nav-mega {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+:is(.ritfit-system-page, .ritfit-next-page) .nav-mega-shop {
+  grid-template-columns: minmax(300px, 26%) 1fr;
+  min-height: 498px;
+  padding: 40px 48px;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .nav-mega-links {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  padding-right: 48px;
+  border-right: 1px solid #d8d8d8;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .nav-mega a {
+  color: #111;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .nav-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 280px));
+  justify-content: space-around;
+  gap: clamp(28px, 5vw, 74px);
+  padding-left: clamp(48px, 7vw, 150px);
+}
+:is(.ritfit-system-page, .ritfit-next-page) .nav-product { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; text-transform: none; }
+:is(.ritfit-system-page, .ritfit-next-page) .nav-product img { width: 100%; aspect-ratio: 1 / .92; object-fit: contain; background: #f0f0f0; }
+:is(.ritfit-system-page, .ritfit-next-page) .nav-product strong { min-height: 48px; margin-top: 14px; overflow: hidden; color: #111; font-size: 17px; line-height: 1.35; text-transform: none; }
+:is(.ritfit-system-page, .ritfit-next-page) .nav-product b { color: #d6001c; font-size: 17px; }
+:is(.ritfit-system-page, .ritfit-next-page) .nav-product del { margin-left: 5px; color: #d6001c; font-size: 14px; }
+:is(.ritfit-system-page, .ritfit-next-page) .nav-mega-simple {
+  grid-template-columns: repeat(2, minmax(220px, 340px));
+  gap: 72px;
+  min-height: 265px;
+  padding: 40px 48px;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .nav-mega-simple > div { display: flex; flex-direction: column; gap: 20px; }
+:is(.ritfit-system-page, .ritfit-next-page) .header-backdrop {
+  position: fixed;
+  z-index: 28;
+  inset: 79px 0 0;
+  visibility: hidden;
+  background: rgba(0, 0, 0, .38);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, visibility 150ms;
+}
+:is(.ritfit-system-page, .ritfit-next-page) .header:has(.nav-item:hover, .nav-item:focus-within) + .header-backdrop { visibility: visible; opacity: 1; }
+:is(.ritfit-system-page, .ritfit-next-page) .section-nav { top: 79px; }
+
+@media (max-width: 1180px) and (min-width: 681px) {
+  :is(.ritfit-system-page, .ritfit-next-page) .header { grid-template-columns: auto 1fr auto; gap: 22px; padding-inline: 28px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .logo,
+  :is(.ritfit-system-page, .ritfit-next-page) .logo img { width: 124px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .main-nav { width: auto; gap: 18px; font-size: 13px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .nav-product-grid { gap: 24px; padding-left: 44px; }
+}
+
+@media (max-width: 680px) {
+  :is(.ritfit-system-page, .ritfit-next-page) .announcement {
+    min-height: 64px;
+    grid-template-columns: 24px auto 24px;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+  :is(.ritfit-system-page, .ritfit-next-page) .announcement span { display: block; font-size: 24px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .announcement a { display: block !important; }
+  :is(.ritfit-system-page, .ritfit-next-page) .header {
+    height: 61px;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    padding: 0 20px;
+  }
+  :is(.ritfit-system-page, .ritfit-next-page) .mobile-primary-actions { justify-self: start; display: flex; align-items: center; gap: 2px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .mobile-menu { display: inline-flex; }
+  :is(.ritfit-system-page, .ritfit-next-page) .mobile-primary-actions .icon-button { width: 38px; height: 44px; padding: 9px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .logo { justify-self: center; }
+  :is(.ritfit-system-page, .ritfit-next-page) .logo,
+  :is(.ritfit-system-page, .ritfit-next-page) .logo img { width: 100px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .main-nav { display: none; }
+  :is(.ritfit-system-page, .ritfit-next-page) .head-actions { gap: 0; }
+  :is(.ritfit-system-page, .ritfit-next-page) .head-actions > button[aria-label="Search"] { display: none; }
+  :is(.ritfit-system-page, .ritfit-next-page) .head-actions > a[aria-label="Account"] { display: inline-flex; }
+  :is(.ritfit-system-page, .ritfit-next-page) .head-actions .icon-button { width: 38px; height: 44px; padding: 9px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .bag-count { right: -2px; top: 3px; }
+  :is(.ritfit-system-page, .ritfit-next-page) .header-backdrop { display: none; }
+  :is(.ritfit-system-page, .ritfit-next-page) .section-nav { top: 61px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.ritfit-system-page, .ritfit-next-page) .nav-mega,
+  :is(.ritfit-system-page, .ritfit-next-page) .header-backdrop,
+  :is(.ritfit-system-page, .ritfit-next-page) .nav-chevron { transition: none; }
+}

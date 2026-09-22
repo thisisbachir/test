@@ -1,0 +1,405 @@
+/* RitFit System — generated from design.md and ritfit-tokens.css only. */
+html:has(body.ritfit-system-page) { scroll-padding-top: 156px; }
+body.ritfit-system-page {
+  margin: 0;
+  background: var(--rf-color-page);
+  color: var(--rf-color-text);
+  font-family: var(--rf-font-body);
+  font-size: var(--rf-size-body);
+  line-height: var(--rf-leading-body);
+}
+.ritfit-system-page p { color: var(--rf-color-text-secondary); }
+.ritfit-system-page button:focus-visible,
+.ritfit-system-page a:focus-visible,
+.ritfit-system-page input:focus-visible,
+.ritfit-system-page select:focus-visible,
+.ritfit-system-page summary:focus-visible {
+  outline: 2px solid var(--rf-color-focus);
+  outline-offset: 2px;
+}
+.ritfit-system-page .wrap { width: min(var(--rf-page-max), calc(100% - (var(--rf-page-gutter-fluid) * 2))); }
+.ritfit-system-page :is(h1, h2, h3) { text-wrap: balance; }
+.ritfit-system-page p { text-wrap: pretty; }
+.ritfit-system-page .icon-button { width: var(--rf-control-min); height: var(--rf-control-min); padding: 11px; }
+.ritfit-system-page .announcement { min-height: 54px; padding-inline: var(--rf-page-gutter); background: var(--rf-color-inverse); color: var(--rf-color-text-inverse); }
+.ritfit-system-page .header { position: sticky; z-index: 30; top: 0; height: 84px; padding-inline: var(--rf-page-gutter); border-color: var(--rf-color-border-subtle); background: var(--rf-color-page); }
+.ritfit-system-page .main-nav { gap: var(--rf-space-8); }
+.ritfit-system-page .main-nav a { font-size: var(--rf-size-label); }
+.ritfit-system-page .breadcrumb { margin-block: var(--rf-space-7); color: var(--rf-color-text-tertiary); }
+
+.ritfit-system-page .product-layout {
+  grid-template-columns: minmax(0, 7fr) minmax(400px, 5fr);
+  gap: var(--rf-space-10);
+  padding-bottom: var(--rf-space-11);
+}
+.ritfit-system-page .gallery { top: var(--rf-space-7); }
+.ritfit-system-page .gallery-stage {
+  aspect-ratio: auto;
+  height: min(var(--rf-product-stage-max-height), calc(100dvh - var(--rf-product-stage-viewport-offset)));
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-product);
+}
+.ritfit-system-page .gallery-stage > img { width: 100%; height: 100%; padding: var(--rf-space-4); object-fit: contain; }
+.ritfit-system-page .rf-view-controls {
+  position: absolute;
+  z-index: 4;
+  right: var(--rf-space-6);
+  left: var(--rf-space-6);
+  top: var(--rf-space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.ritfit-system-page .rf-view-toggle {
+  display: flex;
+  gap: var(--rf-space-1);
+  padding: var(--rf-space-1);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-surface);
+  pointer-events: auto;
+}
+.ritfit-system-page .rf-view-toggle button,
+.ritfit-system-page .rf-plan-space {
+  min-width: var(--rf-control-min);
+  min-height: var(--rf-control-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--rf-space-4);
+  border: 0;
+  border-radius: var(--rf-radius-sm);
+  background: transparent;
+  color: var(--rf-color-text-secondary);
+  font: inherit;
+  font-size: var(--rf-size-label);
+  font-weight: var(--rf-weight-semibold);
+  cursor: pointer;
+}
+.ritfit-system-page .rf-view-toggle button.is-active { background: var(--rf-color-inverse); color: var(--rf-color-text-inverse); }
+.ritfit-system-page .rf-plan-space {
+  gap: var(--rf-space-2);
+  border: 1px solid var(--rf-color-border);
+  background: color-mix(in srgb, var(--rf-color-surface) 92%, transparent);
+  pointer-events: auto;
+}
+.ritfit-system-page .rf-model-layer {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--rf-color-product);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--rf-duration-normal) var(--rf-ease);
+}
+.ritfit-system-page .rf-configurator-frame { width: 100%; height: 100%; border: 0; background: transparent; }
+.ritfit-system-page .rf-model-loading { color: var(--rf-color-text-secondary); font-size: var(--rf-size-label); }
+.ritfit-system-page .rf-model-layer.is-loaded .rf-model-loading { display: none; }
+.ritfit-system-page .gallery-stage > img,
+.ritfit-system-page .gallery-stage .stage-count,
+.ritfit-system-page .gallery-stage .zoom-button { transition: opacity var(--rf-duration-normal) var(--rf-ease); }
+.ritfit-system-page .gallery-stage.is-3d-view .rf-model-layer { opacity: 1; pointer-events: auto; }
+.ritfit-system-page .gallery-stage.is-3d-view > img,
+.ritfit-system-page .gallery-stage.is-3d-view .stage-count,
+.ritfit-system-page .gallery-stage.is-3d-view .zoom-button { opacity: 0; pointer-events: none; }
+.ritfit-system-page .gallery-tools { margin-block: var(--rf-space-4); }
+.ritfit-system-page .gallery-tools .text-button { display: none; }
+.ritfit-system-page .rf-mobile-gallery-placeholder { display: none; }
+.ritfit-system-page .thumb { min-width: 64px; width: 64px; height: 64px; border-radius: var(--rf-radius-sm); background: var(--rf-color-product); }
+.ritfit-system-page .thumb.active { border: var(--rf-border-selected) solid var(--rf-color-brand); }
+.ritfit-system-page .zoom-button { width: var(--rf-control-min); height: var(--rf-control-min); }
+
+.ritfit-system-page .purchase { padding-top: var(--rf-space-6); }
+.ritfit-system-page .purchase .eyebrow {
+  margin-bottom: var(--rf-space-4);
+  color: var(--rf-color-brand);
+  font-size: var(--rf-size-label);
+  font-weight: var(--rf-weight-semibold);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.ritfit-system-page .purchase h1 {
+  max-width: 10ch;
+  font-size: var(--rf-size-display);
+  font-weight: var(--rf-weight-extrabold);
+  line-height: var(--rf-leading-display);
+  letter-spacing: var(--rf-tracking-display);
+}
+.ritfit-system-page .product-subtitle { max-width: 38ch; margin: var(--rf-space-4) 0 var(--rf-space-5); font-size: var(--rf-size-body-lg); line-height: var(--rf-leading-compact); }
+.ritfit-system-page .rating { margin-bottom: var(--rf-space-7); }
+.ritfit-system-page .price-line { margin-bottom: var(--rf-space-2); }
+.ritfit-system-page .price { font-size: var(--rf-size-h4); font-weight: var(--rf-weight-bold); }
+.ritfit-system-page .finance { margin: 0 0 var(--rf-space-6); }
+.ritfit-system-page .option-pair { gap: var(--rf-space-6); }
+.ritfit-system-page .option-group { margin-bottom: var(--rf-space-6); }
+.ritfit-system-page .option-group legend { margin-bottom: var(--rf-space-3); font-size: var(--rf-size-compact); }
+.ritfit-system-page .swatches, .ritfit-system-page .packages { gap: var(--rf-space-2); }
+.ritfit-system-page .swatch, .ritfit-system-page .package {
+  min-height: 48px;
+  padding: var(--rf-space-4);
+  border: 1px solid var(--rf-color-border-subtle);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-surface);
+  color: var(--rf-color-text);
+}
+.ritfit-system-page .swatch.selected,
+.ritfit-system-page .package.selected { border: var(--rf-border-selected) solid var(--rf-color-brand); background: var(--rf-color-surface); box-shadow: none; }
+.ritfit-system-page .rf-package-clarity {
+  margin: var(--rf-space-2) 0 var(--rf-space-5);
+}
+.ritfit-system-page .rf-package-clarity p { color: var(--rf-color-text-secondary); font-size: var(--rf-size-label); line-height: var(--rf-leading-compact); }
+.ritfit-system-page .buy-row { gap: var(--rf-space-4); }
+.ritfit-system-page .buy-row .btn { width: 100%; }
+.ritfit-system-page .btn { min-width: 120px; min-height: var(--rf-button-min-height); border-radius: var(--rf-radius); transition: background-color var(--rf-duration-fast) var(--rf-ease), border-color var(--rf-duration-fast) var(--rf-ease); }
+.ritfit-system-page .btn-primary { background: var(--rf-color-brand); border-color: var(--rf-color-brand); }
+.ritfit-system-page .btn-primary:hover { background: var(--rf-color-brand-hover); border-color: var(--rf-color-brand-hover); }
+.ritfit-system-page .rf-decision-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rf-space-2) var(--rf-space-5);
+  margin-block: var(--rf-space-4) var(--rf-space-5);
+  color: var(--rf-color-text-secondary);
+  font-size: 11px;
+}
+.ritfit-system-page .rf-decision-proof span { display: inline-flex; align-items: center; }
+.ritfit-system-page .rf-decision-proof span + span::before { content: '·'; margin-right: var(--rf-space-5); color: var(--rf-color-border); }
+.ritfit-system-page .rf-tablet-summary { display: none; }
+.ritfit-system-page .quantity button { width: var(--rf-control-min); }
+.ritfit-system-page .quantity input { width: 24px; }
+.ritfit-system-page .hotspot { width: var(--rf-control-min); height: var(--rf-control-min); }
+.ritfit-system-page .dialog-close {
+  display: grid;
+  width: var(--rf-control-min);
+  height: var(--rf-control-min);
+  place-items: center;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  text-align: center;
+}
+.ritfit-system-page .lightbox .dialog-close { top: var(--rf-space-3); right: var(--rf-space-3); }
+
+.ritfit-system-page .section-nav { top: 84px; z-index: 29; border-color: var(--rf-color-border-subtle); background: var(--rf-color-page); }
+.ritfit-system-page .section-nav .wrap { justify-content: center; }
+.ritfit-system-page .section-links { width: 100%; justify-content: center; gap: clamp(var(--rf-space-8), 4vw, var(--rf-space-11)); }
+.ritfit-system-page .section-links a { padding-block: var(--rf-space-5); color: var(--rf-color-text-tertiary); }
+.ritfit-system-page .section-links a.active { color: var(--rf-color-text); border-color: var(--rf-color-brand); }
+.ritfit-system-page .section { padding-block: var(--rf-section-gap); background: var(--rf-color-page); }
+.ritfit-system-page .section.gray, .ritfit-system-page #experiences, .ritfit-system-page #details, .ritfit-system-page #shipping, .ritfit-system-page #faq { background: var(--rf-color-section); }
+.ritfit-system-page .section-heading { align-items: start; margin-bottom: var(--rf-space-9); }
+.ritfit-system-page .section-heading h2 { max-width: 18ch; font-size: var(--rf-size-h2); font-weight: var(--rf-weight-bold); line-height: var(--rf-leading-heading); letter-spacing: var(--rf-tracking-heading); }
+.ritfit-system-page .section-heading > p { max-width: 52ch; padding-top: var(--rf-space-8); font-size: var(--rf-size-body); line-height: var(--rf-leading-body); }
+.ritfit-system-page .stats { margin: 0 0 var(--rf-space-9); padding-block: var(--rf-space-8); border-color: var(--rf-color-border); }
+.ritfit-system-page .stat { padding-inline: var(--rf-space-8); border-color: var(--rf-color-border); }
+.ritfit-system-page .stat strong { font-size: var(--rf-size-h3); }
+
+.ritfit-system-page #features .feature-grid { grid-template-columns: 2fr 1fr; grid-template-rows: repeat(2, 1fr); gap: var(--rf-grid-gap); }
+.ritfit-system-page #features .feature-card:first-child { grid-row: 1 / 3; }
+.ritfit-system-page #features .feature-card:first-child .feature-media { min-height: 650px; }
+.ritfit-system-page #features .feature-card:not(:first-child) .feature-media { aspect-ratio: 16 / 9; }
+.ritfit-system-page .feature-media { border-radius: var(--rf-radius); background: var(--rf-color-product); }
+.ritfit-system-page .feature-card h3 { margin: var(--rf-space-5) 0 var(--rf-space-3); font-size: var(--rf-size-h5); }
+.ritfit-system-page .feature-card p { font-size: var(--rf-size-body); line-height: var(--rf-leading-body); }
+
+.ritfit-system-page #experiences .video-grid { grid-template-columns: repeat(3, 1fr); gap: var(--rf-grid-gap); }
+.ritfit-system-page #experiences .video-card:nth-child(n+4) { display: none; }
+.ritfit-system-page .package-layout, .ritfit-system-page .space-layout { gap: var(--rf-space-10); }
+.ritfit-system-page .space-visual, .ritfit-system-page .package-picture { border-radius: var(--rf-radius); background: var(--rf-color-product); }
+.ritfit-system-page .space-hint { padding: var(--rf-space-6); border-left: 4px solid var(--rf-color-brand); background: var(--rf-color-section); }
+.ritfit-system-page .spec-grid { gap: var(--rf-space-4) var(--rf-space-8); }
+.ritfit-system-page .spec-group { border-color: var(--rf-color-border); }
+.ritfit-system-page .spec-group summary { padding-block: var(--rf-space-6); font-size: var(--rf-size-compact); }
+.ritfit-system-page .spec-table { font-size: var(--rf-size-compact); }
+.ritfit-system-page .spec-table th, .ritfit-system-page .spec-table td { padding-block: var(--rf-space-4); border-color: var(--rf-color-border-subtle); }
+.ritfit-system-page #details .detail-grid { grid-template-columns: repeat(4, 1fr); gap: var(--rf-grid-gap); }
+.ritfit-system-page #details .feature-card { border-top: 2px solid var(--rf-color-text); padding-top: var(--rf-space-5); }
+
+.ritfit-system-page .rf-more-content { margin-top: var(--rf-space-9); border-top: 1px solid var(--rf-color-border); }
+.ritfit-system-page .rf-more-content summary { min-height: 60px; display: flex; align-items: center; justify-content: space-between; color: var(--rf-color-text); font-size: var(--rf-size-compact); font-weight: var(--rf-weight-semibold); }
+.ritfit-system-page .rf-more-content summary::after { content: "+"; font-size: var(--rf-size-h5); }
+.ritfit-system-page .rf-more-content[open] summary::after { content: "−"; }
+.ritfit-system-page .rf-more-grid { padding-top: var(--rf-space-7); }
+.ritfit-system-page #features .rf-more-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: none; }
+.ritfit-system-page #features .rf-more-grid .feature-card:first-child { grid-row: auto; }
+.ritfit-system-page #features .rf-more-grid .feature-card:first-child .feature-media { min-height: 0; }
+.ritfit-system-page #details .rf-more-grid { grid-template-columns: repeat(4, 1fr); }
+
+.ritfit-system-page .table-wrap { border-color: var(--rf-color-border); border-radius: var(--rf-radius); }
+.ritfit-system-page .compare-table th:first-child, .ritfit-system-page .compare-table td:first-child { background: var(--rf-color-section); }
+.ritfit-system-page .compare-table td:nth-child(3), .ritfit-system-page .compare-table th:nth-child(3) { background: color-mix(in srgb, var(--rf-color-brand) 5%, var(--rf-color-page)); }
+.ritfit-system-page .shipping-head { gap: var(--rf-grid-gap); }
+.ritfit-system-page .shipping-head > div, .ritfit-system-page .shipping-panel, .ritfit-system-page .manual-card { border-color: var(--rf-color-border-subtle); border-radius: var(--rf-radius); background: var(--rf-color-surface); }
+.ritfit-system-page .review { padding: var(--rf-space-8); border-color: var(--rf-color-border-subtle); border-radius: var(--rf-radius); background: var(--rf-color-surface); }
+.ritfit-system-page .faq-item { border-color: var(--rf-color-border); }
+.ritfit-system-page .footer { background: var(--rf-color-inverse); color: var(--rf-color-text-inverse); }
+
+@media (max-width: 1100px) {
+  .ritfit-system-page .main-nav { display: none; }
+  .ritfit-system-page .mobile-menu { display: inline-flex; }
+  .ritfit-system-page .head-actions { margin-left: auto; }
+  .ritfit-system-page .product-layout { grid-template-columns: 1fr; gap: var(--rf-space-8); }
+  .ritfit-system-page .rf-tablet-summary { display: flex; align-items: end; justify-content: space-between; gap: var(--rf-space-7); padding-block: var(--rf-space-5); border-block: 1px solid var(--rf-color-border); }
+  .ritfit-system-page .rf-tablet-summary span, .ritfit-system-page .rf-tablet-summary h1, .ritfit-system-page .rf-tablet-summary b { display: block; }
+  .ritfit-system-page .rf-tablet-summary span { margin-bottom: var(--rf-space-1); color: var(--rf-color-brand); font-size: var(--rf-size-label); font-weight: var(--rf-weight-semibold); }
+  .ritfit-system-page .rf-tablet-summary h1 { margin: 0; font-size: var(--rf-size-h4); font-weight: var(--rf-weight-bold); line-height: var(--rf-leading-heading); letter-spacing: var(--rf-tracking-heading); }
+  .ritfit-system-page .rf-tablet-summary > div:last-child { text-align: right; }
+  .ritfit-system-page .rf-tablet-summary b { margin-bottom: var(--rf-space-1); font-size: var(--rf-size-h5); }
+  .ritfit-system-page .rf-tablet-summary a { color: var(--rf-color-brand); font-size: var(--rf-size-label); font-weight: var(--rf-weight-semibold); }
+  .ritfit-system-page .gallery-stage { height: min(620px, calc(100dvh - var(--rf-product-stage-tablet-offset)), calc(100vw - (var(--rf-page-gutter-fluid) * 2))); max-height: none; }
+  .ritfit-system-page .purchase { max-width: var(--rf-reading-max); }
+  .ritfit-system-page .purchase > :is(.eyebrow, h1) { display: none; }
+  .ritfit-system-page #features .feature-grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+  .ritfit-system-page #features .feature-card:first-child { grid-column: 1 / -1; grid-row: auto; }
+  .ritfit-system-page #features .feature-card:first-child .feature-media { min-height: 0; }
+}
+
+@media (max-width: 680px) {
+  .ritfit-system-page .announcement { min-height: 40px; padding-inline: var(--rf-page-gutter); }
+  .ritfit-system-page .header { height: 64px; padding-inline: var(--rf-page-gutter); }
+  .ritfit-system-page .section-nav { top: 64px; }
+  .ritfit-system-page .section-nav .wrap { padding-inline: var(--rf-page-gutter-fluid); }
+  .ritfit-system-page .section-links { justify-content: flex-start; gap: var(--rf-space-7); }
+  html:has(body.ritfit-system-page) { scroll-padding-top: 136px; }
+  .ritfit-system-page .breadcrumb { margin-block: var(--rf-space-6); }
+  .ritfit-system-page .product-layout { gap: 0; padding-bottom: var(--rf-section-gap); }
+  .ritfit-system-page .gallery { order: 1; }
+  .ritfit-system-page .rf-tablet-summary {
+    order: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: var(--rf-space-4);
+    padding: var(--rf-space-6) 0 var(--rf-space-3);
+    border: 0;
+  }
+  .ritfit-system-page .rf-tablet-summary > div { display: contents; }
+  .ritfit-system-page .rf-tablet-summary span,
+  .ritfit-system-page .rf-tablet-summary a { display: none; }
+  .ritfit-system-page .rf-tablet-summary h1 {
+    grid-column: 1;
+    margin: 0;
+    font-size: var(--rf-size-h3);
+  }
+  .ritfit-system-page .rf-tablet-summary b {
+    grid-column: 2;
+    margin: 0;
+    font-size: var(--rf-size-h5);
+    text-align: right;
+  }
+  .ritfit-system-page .purchase { order: 3; }
+  .ritfit-system-page .purchase .price-line { display: none; }
+  .ritfit-system-page .gallery-stage { height: max(180px, min(calc(100vw - 40px), calc(100dvh - var(--rf-product-stage-tablet-offset)))); max-height: none; }
+  .ritfit-system-page .rf-mobile-gallery-placeholder.is-active { display: block; width: 100%; }
+  .ritfit-system-page .gallery-stage.is-config-sticky {
+    position: fixed;
+    z-index: 28;
+    top: var(--rf-mobile-stage-top, 76px);
+    left: var(--rf-page-gutter-fluid);
+    width: calc(100% - (var(--rf-page-gutter-fluid) * 2));
+    margin: 0;
+    border-radius: var(--rf-radius);
+    background: var(--rf-color-product);
+    box-shadow: var(--rf-shadow-md);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--rf-duration-fast) var(--rf-ease), transform var(--rf-duration-fast) var(--rf-ease), box-shadow var(--rf-duration-fast) var(--rf-ease);
+  }
+  .ritfit-system-page .gallery-stage.is-config-sticky.is-config-hidden { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+  .ritfit-system-page .gallery-stage.is-config-sticky .rf-view-controls { opacity: 0; pointer-events: none; }
+  .ritfit-system-page .rf-view-controls { right: var(--rf-space-3); left: var(--rf-space-3); top: var(--rf-space-3); }
+  .ritfit-system-page .rf-view-toggle button, .ritfit-system-page .rf-plan-space { min-height: var(--rf-control-min); padding-inline: var(--rf-space-3); font-size: var(--rf-size-label); }
+  .ritfit-system-page .purchase { padding-top: 0; }
+  .ritfit-system-page .purchase h1 { font-size: var(--rf-size-display); }
+  .ritfit-system-page .option-pair { gap: var(--rf-space-4); }
+  .ritfit-system-page .rf-package-clarity ul { grid-template-columns: 1fr; }
+  .ritfit-system-page .rf-decision-proof { display: grid; grid-template-columns: 1fr 1fr; gap: var(--rf-space-2) var(--rf-space-5); }
+  .ritfit-system-page .rf-decision-proof span + span::before { display: none; }
+  .ritfit-system-page .section { padding-block: var(--rf-section-gap); }
+  .ritfit-system-page .section-heading { display: block; margin-bottom: var(--rf-space-8); }
+  .ritfit-system-page .section-heading h2 { font-size: var(--rf-size-h2); }
+  .ritfit-system-page .section-heading > p { margin-top: var(--rf-space-5); padding-top: 0; font-size: var(--rf-size-body); }
+  .ritfit-system-page .stats { grid-template-columns: 1fr 1fr; gap: var(--rf-space-6); }
+  .ritfit-system-page #features .feature-grid,
+  .ritfit-system-page #features .rf-more-grid,
+  .ritfit-system-page #details .detail-grid,
+  .ritfit-system-page #details .rf-more-grid,
+  .ritfit-system-page #experiences .video-grid { grid-template-columns: 1fr; }
+  .ritfit-system-page #features .feature-card:first-child { grid-column: auto; }
+  .ritfit-system-page .feature-card h3 { font-size: var(--rf-size-h5); }
+  .ritfit-system-page #details .feature-card { border-top-width: 1px; }
+}
+
+@media (min-width: 681px) and (max-width: 1365px) {
+  .ritfit-system-page .mobile-sticky {
+    position: fixed;
+    z-index: 40;
+    right: var(--rf-page-gutter-fluid);
+    bottom: var(--rf-space-6);
+    display: flex;
+    min-width: 390px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rf-space-8);
+    padding: var(--rf-space-4);
+    border: 1px solid var(--rf-color-border-subtle);
+    border-radius: var(--rf-radius);
+    background: var(--rf-color-surface);
+    box-shadow: var(--rf-shadow-md);
+  }
+  .ritfit-system-page .mobile-sticky strong,
+  .ritfit-system-page .mobile-sticky small { display: block; }
+  .ritfit-system-page .mobile-sticky strong { font-size: var(--rf-size-h5); line-height: 1.2; }
+  .ritfit-system-page .mobile-sticky small { color: var(--rf-color-text-tertiary); font-size: var(--rf-size-label); }
+  .ritfit-system-page .mobile-sticky .btn { min-width: 150px; }
+}
+
+@media (min-width: 1366px) {
+  .ritfit-system-page .mobile-sticky {
+    position: fixed;
+    z-index: 40;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rf-space-9);
+    padding: var(--rf-space-4) max(var(--rf-page-gutter-fluid), calc((100vw - var(--rf-page-max)) / 2 + var(--rf-page-gutter-fluid)));
+    border-top: 1px solid var(--rf-color-border-subtle);
+    background: rgb(255 255 255 / 96%);
+    box-shadow: 0 -8px 24px rgb(0 0 0 / 8%);
+    backdrop-filter: blur(14px);
+  }
+  .ritfit-system-page .mobile-sticky > div {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: baseline;
+    gap: var(--rf-space-3) var(--rf-space-7);
+  }
+  .ritfit-system-page .mobile-sticky small {
+    grid-column: 1;
+    color: var(--rf-color-text-tertiary);
+    font-size: var(--rf-size-label);
+  }
+  .ritfit-system-page .mobile-sticky strong {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: var(--rf-size-h5);
+    line-height: 1.2;
+  }
+  .ritfit-system-page .mobile-sticky .btn {
+    min-width: 240px;
+  }
+  .ritfit-system-page .footer {
+    padding-bottom: calc(var(--rf-space-7) + 76px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ritfit-system-page *, .ritfit-system-page *::before, .ritfit-system-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

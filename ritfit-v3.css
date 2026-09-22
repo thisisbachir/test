@@ -1,0 +1,400 @@
+/* RitFit M1 PRO product page — v3 overrides.
+   Loads AFTER the originals and ritfit-v2.css; override/additive rules only. */
+
+/* ---------------------------------------------------------------- */
+/* Removed modules (safety net for anything re-inserted by scripts)   */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page #setup,
+.ritfit-system-page #features .stats,
+.ritfit-system-page #included .package-picture,
+.ritfit-system-page #included .package-breakdown { display: none; }
+
+.ritfit-system-page #included .package-layout {
+  display: block;
+  max-width: 900px;
+}
+.ritfit-system-page #included .included { margin-top: 0; }
+.ritfit-system-page #included .included span { font-size: 13px; }
+.ritfit-system-page #included .included a b {
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+
+/* ---------------------------------------------------------------- */
+/* Savings badge                                                      */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rf-space-2);
+  margin: 0 0 var(--rf-space-4);
+}
+.ritfit-system-page .rf-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 var(--rf-space-3);
+  border-radius: var(--rf-radius-round);
+  background: var(--rf-color-brand);
+  color: var(--rf-color-text-inverse);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------------- */
+/* Trust pills (under the add-ons, above the ATC panel)               */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-trust.rf-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rf-space-2);
+  margin: 0 0 var(--rf-space-5);
+  padding: 0;
+  border: 0;
+}
+.ritfit-system-page .rf-pills li { flex: 0 0 auto; }
+.ritfit-system-page .rf-pills a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 var(--rf-space-5);
+  border-radius: var(--rf-radius-round);
+  background: var(--rf-color-text);
+  color: var(--rf-color-text-inverse);
+  font-size: 13px;
+  font-weight: var(--rf-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color var(--rf-duration-fast) var(--rf-ease);
+}
+.ritfit-system-page .rf-pills a:hover {
+  background: var(--rf-color-brand-hover);
+  color: var(--rf-color-text-inverse);
+}
+
+/* ---------------------------------------------------------------- */
+/* Add-to-cart panel (inline + sticky share the markup)               */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-atc {
+  display: grid;
+  gap: var(--rf-space-2);
+  padding: var(--rf-space-4);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-product);
+}
+.ritfit-system-page .rf-atc-config {
+  margin: 0;
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-atc-row { margin: 0; }
+.ritfit-system-page .rf-atc-button {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rf-space-5);
+  padding: 0 var(--rf-space-6);
+  border-radius: var(--rf-radius);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+}
+.ritfit-system-page .rf-atc-prices {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--rf-space-2);
+}
+.ritfit-system-page .rf-atc-prices del {
+  color: rgb(255 255 255 / 72%);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-medium);
+}
+.ritfit-system-page .rf-atc-prices b {
+  font-size: var(--rf-size-body);
+  font-weight: var(--rf-weight-bold);
+}
+.ritfit-system-page .rf-atc-out { display: none; }
+.ritfit-system-page .rf-ship-note { margin-top: var(--rf-space-4); }
+.ritfit-system-page .mobile-sticky[hidden] { display: none; }
+
+/* Sticky bar ≥681px: label and price sit immediately left of the button, right-aligned. */
+@media (min-width: 681px) {
+  .ritfit-system-page .mobile-sticky { justify-content: flex-end; }
+  .ritfit-system-page .mobile-sticky .rf-atc {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--rf-space-6);
+    padding: 0;
+    background: transparent;
+  }
+  .ritfit-system-page .mobile-sticky .rf-atc-config { margin: 0; }
+  .ritfit-system-page .mobile-sticky .rf-atc-out {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--rf-space-2);
+  }
+  .ritfit-system-page .mobile-sticky .rf-atc-out del {
+    color: var(--rf-color-text-tertiary);
+    font-size: var(--rf-size-compact);
+  }
+  .ritfit-system-page .mobile-sticky .rf-atc-out strong {
+    font-size: var(--rf-size-h5);
+    line-height: 1.2;
+  }
+  .ritfit-system-page .mobile-sticky .rf-atc-button {
+    width: auto;
+    min-width: 200px;
+    justify-content: center;
+  }
+  .ritfit-system-page .mobile-sticky .rf-atc-button .rf-atc-prices { display: none; }
+}
+
+/* ---------------------------------------------------------------- */
+/* "Fits your space" inside a quick-details row                       */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-fit-content { padding-top: var(--rf-space-1); }
+.ritfit-system-page .rf-fit-content dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--rf-space-2);
+  margin: 0 0 var(--rf-space-3);
+}
+.ritfit-system-page .rf-fit-content dl > div {
+  padding: var(--rf-space-4);
+  border: 1px solid var(--rf-color-border-subtle);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-section);
+}
+.ritfit-system-page .rf-fit-content dt {
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+}
+.ritfit-system-page .rf-fit-content dd {
+  margin: var(--rf-space-1) 0 0;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-body);
+  font-weight: var(--rf-weight-semibold);
+}
+.ritfit-system-page .rf-fit-content > a {
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------- */
+/* FAQ categories                                                     */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-faq { max-width: 900px; }
+.ritfit-system-page .rf-faq-search {
+  width: 100%;
+  min-height: 48px;
+  margin: 0 0 var(--rf-space-5);
+  padding: var(--rf-space-4) var(--rf-space-5);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-surface);
+  color: var(--rf-color-text);
+  font: inherit;
+  font-size: var(--rf-size-compact);
+}
+.ritfit-system-page .rf-faq-empty {
+  margin: 0 0 var(--rf-space-5);
+  font-size: var(--rf-size-compact);
+}
+.ritfit-system-page .rf-faq-category {
+  margin: 0 0 var(--rf-space-2);
+  border: 1px solid var(--rf-color-border-subtle);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-surface);
+}
+.ritfit-system-page .rf-faq-category > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-5);
+  padding: var(--rf-space-5) var(--rf-space-6);
+  cursor: pointer;
+  list-style: none;
+}
+.ritfit-system-page .rf-faq-category > summary::-webkit-details-marker { display: none; }
+.ritfit-system-page .rf-faq-icon {
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: var(--rf-radius);
+  background: color-mix(in srgb, var(--rf-color-brand) 8%, var(--rf-color-surface));
+  color: var(--rf-color-brand);
+}
+.ritfit-system-page .rf-faq-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ritfit-system-page .rf-faq-title {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+.ritfit-system-page .rf-faq-title strong {
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-body);
+  font-weight: var(--rf-weight-semibold);
+  line-height: 1.3;
+}
+.ritfit-system-page .rf-faq-title small {
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+}
+.ritfit-system-page .rf-faq-chevron {
+  flex: 0 0 10px;
+  width: 10px;
+  height: 10px;
+  margin: 0 var(--rf-space-1) 4px 0;
+  border-right: 2px solid var(--rf-color-text-tertiary);
+  border-bottom: 2px solid var(--rf-color-text-tertiary);
+  transform: rotate(45deg);
+  transition: transform var(--rf-duration-fast) var(--rf-ease);
+}
+.ritfit-system-page .rf-faq-category[open] .rf-faq-chevron { transform: translateY(4px) rotate(-135deg); }
+.ritfit-system-page .rf-faq-body {
+  padding: 0 var(--rf-space-6) var(--rf-space-2);
+  border-top: 1px solid var(--rf-color-border-subtle);
+}
+.ritfit-system-page .rf-faq-body .faq-item summary {
+  font-size: 15px;
+  padding: var(--rf-space-5) 0;
+}
+.ritfit-system-page .rf-faq-body .faq-item p { padding: 0 var(--rf-space-8) var(--rf-space-5) 0; }
+.ritfit-system-page .rf-faq-body .faq-item:last-child { border-bottom: 0; }
+.ritfit-system-page .rf-faq > .text-button { margin-top: var(--rf-space-6); }
+
+/* ---------------------------------------------------------------- */
+/* Mobile ≤680px                                                      */
+/* ---------------------------------------------------------------- */
+@media (max-width: 680px) {
+  /* Title block above the gallery: the buy column dissolves into the product grid. */
+  .ritfit-system-page .product-layout .purchase { display: contents; }
+  .ritfit-system-page .product-layout .purchase > * { order: 3; }
+  .ritfit-system-page .product-layout .rf-badges { order: -11; margin-bottom: var(--rf-space-3); }
+  .ritfit-system-page .product-layout .purchase > h1 {
+    display: block;
+    order: -10;
+    max-width: none;
+    margin: 0 0 var(--rf-space-2);
+  }
+  .ritfit-system-page .product-layout .product-subtitle { order: -9; margin: 0 0 var(--rf-space-4); }
+  .ritfit-system-page .product-layout .rating { order: -8; margin: 0 0 var(--rf-space-4); font-size: var(--rf-size-compact); }
+  .ritfit-system-page .product-layout .purchase .price-line { display: flex; order: -7; margin: 0 0 var(--rf-space-2); }
+  .ritfit-system-page .product-layout .rf-finance { order: -6; margin: 0 0 var(--rf-space-6); }
+  .ritfit-system-page .product-layout .gallery { order: 1; margin: 0 0 var(--rf-space-6); }
+  .ritfit-system-page .product-layout .rf-tablet-summary { display: none; }
+  .ritfit-system-page .product-layout .rf-highlights { margin-top: 0; }
+
+  /* Gallery stage never sticks on mobile; the ATC panel is the sticky element. */
+  .ritfit-system-page .rf-mobile-gallery-placeholder { display: none !important; }
+  .ritfit-system-page .gallery-stage.is-config-sticky {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    box-shadow: none;
+  }
+  .ritfit-system-page .gallery-stage.is-config-sticky.is-config-hidden {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .ritfit-system-page .gallery-stage.is-config-sticky .rf-view-controls {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Trust pills scroll on one line. */
+  .ritfit-system-page .rf-trust.rf-pills {
+    flex-wrap: nowrap;
+    margin-inline: calc(-1 * var(--rf-page-gutter));
+    padding-inline: var(--rf-page-gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .ritfit-system-page .rf-trust.rf-pills::-webkit-scrollbar { display: none; }
+
+  /* Sticky ATC bar holds the same panel. */
+  .ritfit-system-page .mobile-sticky {
+    display: block;
+    padding: var(--rf-space-2) var(--rf-page-gutter) calc(var(--rf-space-2) + env(safe-area-inset-bottom));
+  }
+  .ritfit-system-page .mobile-sticky[hidden] { display: none; }
+  .ritfit-system-page .mobile-sticky .rf-atc { padding: var(--rf-space-3) var(--rf-space-4); }
+  .ritfit-system-page .footer { padding-bottom: 150px; }
+
+  /* Fits your space rows */
+  .ritfit-system-page .rf-fit-content dl { grid-template-columns: 1fr; }
+  .ritfit-system-page .rf-fit-content dl > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--rf-space-4);
+  }
+  .ritfit-system-page .rf-fit-content dd { margin: 0; text-align: right; }
+
+  /* Features: horizontal snap carousel */
+  body.ritfit-system-page #features .feature-grid {
+    display: flex;
+    gap: var(--rf-space-4);
+    margin-inline: calc(-1 * var(--rf-page-gutter));
+    padding: 0 var(--rf-page-gutter) var(--rf-space-2);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--rf-page-gutter);
+    scrollbar-width: none;
+  }
+  body.ritfit-system-page #features .feature-grid::-webkit-scrollbar { display: none; }
+  body.ritfit-system-page #features .feature-grid > .feature-card,
+  body.ritfit-system-page #features .feature-grid > .feature-card:nth-child(even) {
+    display: flex;
+    flex: 0 0 78vw;
+    flex-direction: column;
+    max-width: 320px;
+    padding: 0;
+    border: 0;
+    scroll-snap-align: start;
+  }
+  body.ritfit-system-page #features .feature-grid > .feature-card .feature-media {
+    aspect-ratio: 4 / 5;
+    margin: 0 0 var(--rf-space-4);
+    border-radius: var(--rf-radius);
+  }
+  body.ritfit-system-page #features .feature-grid > .feature-card h3 {
+    margin: 0 0 var(--rf-space-2);
+    font-size: var(--rf-size-body);
+  }
+  body.ritfit-system-page #features .feature-grid > .feature-card p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-size: var(--rf-size-compact);
+  }
+  body.ritfit-system-page #features .rf-more-content { display: none; }
+
+  .ritfit-system-page .rf-faq-category > summary { padding: var(--rf-space-4) var(--rf-space-5); }
+  .ritfit-system-page .rf-faq-body { padding: 0 var(--rf-space-5) var(--rf-space-2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ritfit-system-page .rf-faq-chevron,
+  .ritfit-system-page .rf-pills a { transition: none; }
+  body.ritfit-system-page #features .feature-grid { scroll-behavior: auto; }
+}

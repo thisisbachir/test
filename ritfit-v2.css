@@ -1,0 +1,466 @@
+/* RitFit M1 PRO product page — v2 overrides.
+   Loads AFTER ritfit-tokens.css, ritfit-system.css and ritfit-sections.css and only adds
+   or overrides rules; the original stylesheets are untouched. Tokens only, Montserrat only. */
+
+/* ---------------------------------------------------------------- */
+/* Casing: brand rule is "never all caps" — remove CSS uppercasing.   */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .announcement,
+.ritfit-system-page .main-nav,
+.ritfit-system-page .nav-mega a,
+.ritfit-system-page .eyebrow,
+.ritfit-system-page .rf-scene-stat span,
+.ritfit-system-page .rf-scene-selected > span,
+.ritfit-system-page .rf-scene-control-label {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Header: the original nav width formula (100vw − 520px) plus the two 220px side
+   columns, grid gaps and padding exceeds the viewport between 1181 and ~1540px,
+   pushing the bag/account icons off-canvas (48px page overflow at 1440px). */
+.ritfit-system-page .main-nav { width: min(914px, calc(100vw - 640px)); }
+
+/* ---------------------------------------------------------------- */
+/* Buy box: financing                                                 */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-finance {
+  display: grid;
+  gap: var(--rf-space-1);
+  margin: 0 0 var(--rf-space-6);
+}
+.ritfit-system-page .rf-finance p {
+  margin: 0;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-finance-primary b { font-weight: var(--rf-weight-semibold); }
+.ritfit-system-page .rf-finance button {
+  margin-left: var(--rf-space-2);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--rf-color-text-secondary);
+  font: inherit;
+  font-size: var(--rf-size-compact);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.ritfit-system-page .rf-finance button:hover,
+.ritfit-system-page .rf-finance-link:hover { color: var(--rf-color-brand-hover); }
+.ritfit-system-page .rf-finance-link {
+  color: var(--rf-color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ritfit-system-page .rf-finance-muted { color: var(--rf-color-text-secondary); }
+
+/* ---------------------------------------------------------------- */
+/* Buy box: small block titles (Key highlights, Fits your space…)     */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-block-title {
+  margin: 0 0 var(--rf-space-4);
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+  line-height: var(--rf-leading-compact);
+  letter-spacing: 0;
+}
+
+/* Key highlights */
+.ritfit-system-page .rf-highlights,
+.ritfit-system-page .rf-fit {
+  margin: 0 0 var(--rf-space-7);
+  padding-top: var(--rf-space-5);
+  border-top: 1px solid var(--rf-color-border-subtle);
+}
+.ritfit-system-page .rf-highlights ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--rf-space-3) var(--rf-space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ritfit-system-page .rf-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rf-space-3);
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+  line-height: 24px;
+}
+.ritfit-system-page .rf-highlights svg {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Fits your space */
+.ritfit-system-page .rf-fit dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--rf-space-3);
+  margin: 0;
+}
+.ritfit-system-page .rf-fit dl > div {
+  padding: var(--rf-space-4);
+  border: 1px solid var(--rf-color-border-subtle);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-section);
+}
+.ritfit-system-page .rf-fit dt {
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-fit dd {
+  margin: var(--rf-space-1) 0 0;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-body);
+  font-weight: var(--rf-weight-semibold);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-fit > a {
+  display: inline-block;
+  margin-top: var(--rf-space-3);
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ritfit-system-page .rf-fit > a:hover { color: var(--rf-color-brand-hover); }
+
+/* ---------------------------------------------------------------- */
+/* Buy box: package option cards                                      */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .packages {
+  grid-template-columns: 1fr;
+  gap: var(--rf-space-2);
+}
+.ritfit-system-page .package,
+.ritfit-system-page .package.selected {
+  display: grid;
+  gap: var(--rf-space-1);
+  min-height: 0;
+  padding: var(--rf-space-4) var(--rf-space-5);
+  border: 1px solid var(--rf-color-border);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-surface);
+  color: var(--rf-color-text);
+  text-align: left;
+  box-shadow: none;
+  transition: border-color var(--rf-duration-fast) var(--rf-ease), box-shadow var(--rf-duration-fast) var(--rf-ease);
+}
+.ritfit-system-page .package:hover { border-color: var(--rf-color-text-tertiary); }
+.ritfit-system-page .package.selected {
+  border-color: var(--rf-color-brand);
+  box-shadow: inset 0 0 0 1px var(--rf-color-brand); /* renders as a 2 px brand border without layout shift */
+}
+.ritfit-system-page .package.selected::after { content: none; }
+.ritfit-system-page .rf-package-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--rf-space-4);
+}
+.ritfit-system-page .rf-package-name {
+  font-size: var(--rf-size-body);
+  font-weight: var(--rf-weight-semibold);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-package-diff {
+  flex: 0 0 auto;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-medium);
+}
+.ritfit-system-page .rf-package-desc {
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-package-stock {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rf-space-2);
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-package-stock::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rf-color-success);
+}
+.ritfit-system-page .rf-package-stock.is-unavailable::before { background: var(--rf-color-border); }
+
+/* Package summary line rendered by the enhancement script (was 12px). */
+.ritfit-system-page .rf-package-clarity p {
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+
+/* Sticky buy bar: readable label and CTA sizes. */
+.ritfit-system-page .mobile-sticky small { font-size: var(--rf-size-label); }
+.ritfit-system-page .mobile-sticky .btn { font-size: var(--rf-size-compact); }
+
+/* ---------------------------------------------------------------- */
+/* Buy box: add-ons                                                   */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-addons { margin: 0 0 var(--rf-space-6); }
+.ritfit-system-page .rf-addon-list {
+  display: grid;
+  gap: var(--rf-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ritfit-system-page .rf-addon {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--rf-space-4);
+  padding: var(--rf-space-3) var(--rf-space-4);
+  border: 1px solid var(--rf-color-border-subtle);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-surface);
+}
+.ritfit-system-page .rf-addon img {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--rf-radius-sm);
+  background: var(--rf-color-product);
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.ritfit-system-page .rf-addon-copy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+.ritfit-system-page .rf-addon-copy a {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-medium);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-addon-copy a:hover { color: var(--rf-color-brand-hover); }
+.ritfit-system-page .rf-addon-price {
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+}
+.ritfit-system-page .rf-addon-toggle {
+  min-width: 84px;
+  min-height: var(--rf-control-min);
+  padding: 0 var(--rf-space-5);
+  border: 1px solid var(--rf-color-text);
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-surface);
+  color: var(--rf-color-text);
+  font: inherit;
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--rf-duration-fast) var(--rf-ease), color var(--rf-duration-fast) var(--rf-ease), border-color var(--rf-duration-fast) var(--rf-ease);
+}
+.ritfit-system-page .rf-addon-toggle:hover { background: var(--rf-color-section); }
+.ritfit-system-page .rf-addon-toggle[aria-pressed="true"] {
+  border-color: var(--rf-color-text);
+  background: var(--rf-color-text);
+  color: var(--rf-color-text-inverse);
+}
+
+/* ---------------------------------------------------------------- */
+/* Buy box: shipping note + trust rows under the CTA                  */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-ship-note {
+  margin: var(--rf-space-4) 0 0;
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-trust {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--rf-space-3) var(--rf-space-5);
+  margin: var(--rf-space-5) 0 var(--rf-space-6);
+  padding: var(--rf-space-5) 0;
+  border-top: 1px solid var(--rf-color-border-subtle);
+  border-bottom: 1px solid var(--rf-color-border-subtle);
+  list-style: none;
+}
+.ritfit-system-page .rf-trust a {
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-3);
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-trust a:hover { color: var(--rf-color-brand-hover); }
+.ritfit-system-page .rf-trust .icon {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------------------------------------------------------------- */
+/* Bag dialog: add-on rows                                            */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-cart-addons { padding-top: var(--rf-space-5); }
+.ritfit-system-page .rf-cart-addons-title {
+  margin: 0 0 var(--rf-space-3);
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-semibold);
+}
+.ritfit-system-page .rf-cart-addons-title span {
+  color: var(--rf-color-text-tertiary);
+  font-weight: var(--rf-weight-regular);
+}
+.ritfit-system-page .rf-cart-addon {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--rf-space-4);
+  padding: var(--rf-space-3) 0;
+  border-top: 1px solid var(--rf-color-border-subtle);
+}
+.ritfit-system-page .rf-cart-addon img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+.ritfit-system-page .rf-cart-addon strong {
+  display: block;
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page .rf-cart-addon span {
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+}
+.ritfit-system-page .rf-cart-addon .text-button { font-size: var(--rf-size-compact); }
+
+/* ---------------------------------------------------------------- */
+/* Mobile menu links (rebuilt by ritfit-v2.js)                        */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page #menu-links a {
+  display: block;
+  padding: var(--rf-space-3) 0;
+  border-bottom: 1px solid var(--rf-color-border-subtle);
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-compact);
+}
+
+/* ---------------------------------------------------------------- */
+/* Gallery thumbnails: the 3D choreography rule sets overflow:hidden,  */
+/* which blocks touch scrolling of the strip. Keep it swipeable.       */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .thumbs {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.ritfit-system-page .gallery.is-3d-mode .thumbs { overflow: hidden; }
+
+/* ---------------------------------------------------------------- */
+/* Section nav: 11 labels                                             */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .section-links {
+  justify-content: safe center;
+  gap: clamp(var(--rf-space-5), 2.2vw, var(--rf-space-9));
+}
+
+/* ---------------------------------------------------------------- */
+/* Real setups section + background rhythm after the reorder          */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page #real-setups { background: var(--rf-color-page); }
+.ritfit-system-page #faq { background: var(--rf-color-section); }
+.ritfit-system-page #reviews { background: var(--rf-color-page); }
+
+.ritfit-system-page .rf-setups-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--rf-grid-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ritfit-system-page .rf-setups-grid figure { margin: 0; }
+.ritfit-system-page .rf-setup-tile {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-product);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.ritfit-system-page .rf-setup-tile img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform var(--rf-duration-normal) var(--rf-ease);
+}
+@media (hover: hover) {
+  .ritfit-system-page .rf-setup-tile:hover img { transform: scale(1.03); }
+}
+.ritfit-system-page .rf-setups-grid figcaption {
+  margin-top: var(--rf-space-3);
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+}
+
+/* ---------------------------------------------------------------- */
+/* Shipping: inline SVG carton icon (replaces the missing PNG set)    */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-carton-shape .rf-carton-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ---------------------------------------------------------------- */
+/* Mobile                                                             */
+/* ---------------------------------------------------------------- */
+@media (max-width: 680px) {
+  .ritfit-system-page .rf-highlights ul { grid-template-columns: 1fr; }
+  .ritfit-system-page .rf-fit dl { grid-template-columns: 1fr; }
+  .ritfit-system-page .rf-fit dl > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--rf-space-4);
+  }
+  .ritfit-system-page .rf-fit dd { margin: 0; text-align: right; }
+  .ritfit-system-page .rf-addon { grid-template-columns: 48px minmax(0, 1fr) auto; }
+  .ritfit-system-page .rf-addon img { width: 48px; height: 48px; }
+  .ritfit-system-page .rf-setups-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--rf-space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ritfit-system-page .package,
+  .ritfit-system-page .rf-addon-toggle,
+  .ritfit-system-page .rf-setup-tile img { transition: none; }
+}

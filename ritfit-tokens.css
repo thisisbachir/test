@@ -1,0 +1,139 @@
+/* RitFit design tokens — mechanical companion to design.md. */
+:root {
+  color-scheme: light;
+
+  --rf-color-brand: #CD001A;
+  --rf-color-brand-hover: #A30015;
+  --rf-color-brand-active: #850011;
+  --rf-color-text: #1D1D1F;
+  --rf-color-text-secondary: #4F4F4F;
+  --rf-color-text-tertiary: #747474;
+  --rf-color-text-inverse: #FFFFFF;
+  --rf-color-page: #FFFFFF;
+  --rf-color-section: #F9FAFB;
+  --rf-color-product: #F5F5F5;
+  --rf-color-surface: #FFFFFF;
+  --rf-color-inverse: #1D1D1F;
+  --rf-color-border: #C4C4C4;
+  --rf-color-border-subtle: #E4E5E7;
+  --rf-color-focus: #CD001A;
+  --rf-color-info: #2F80ED;
+  --rf-color-success: #708D81;
+  --rf-color-warning: #EDA02C;
+  --rf-color-error: #FF6B6B;
+  --rf-color-overlay: rgba(0, 0, 0, .72);
+
+  --rf-font-display: Montserrat, sans-serif;
+  --rf-font-body: Montserrat, sans-serif;
+  --rf-size-display: 64px;
+  --rf-size-h2: 48px;
+  --rf-size-h3: 36px;
+  --rf-size-h4: 32px;
+  --rf-size-h5: 24px;
+  --rf-size-lede: 20px;
+  --rf-size-body-lg: 18px;
+  --rf-size-body: 16px;
+  --rf-size-compact: 14px;
+  --rf-size-label: 12px;
+  --rf-weight-regular: 400;
+  --rf-weight-medium: 500;
+  --rf-weight-semibold: 600;
+  --rf-weight-bold: 700;
+  --rf-weight-extrabold: 800;
+  --rf-leading-display: 1.02;
+  --rf-leading-heading: 1.12;
+  --rf-leading-body: 1.65;
+  --rf-leading-compact: 1.5;
+  --rf-tracking-display: -.04em;
+  --rf-tracking-heading: -.025em;
+  --rf-tracking-label: .02em;
+
+  --rf-space-0: 0;
+  --rf-space-1: 4px;
+  --rf-space-2: 8px;
+  --rf-space-3: 10px;
+  --rf-space-4: 12px;
+  --rf-space-5: 16px;
+  --rf-space-6: 20px;
+  --rf-space-7: 24px;
+  --rf-space-8: 30px;
+  --rf-space-9: 40px;
+  --rf-space-10: 60px;
+  --rf-space-11: 80px;
+  --rf-space-12: 120px;
+
+  --rf-page-max: 1812px;
+  --rf-product-stage-max-height: 760px;
+  --rf-product-stage-viewport-offset: 220px;
+  --rf-product-stage-tablet-offset: 440px;
+  --rf-reading-max: 720px;
+  --rf-page-gutter: 54px;
+  --rf-page-gutter-fluid: clamp(20px, 2.82vw, 54px);
+  --rf-grid-gap: 24px;
+  --rf-section-gap: 80px;
+  --rf-control-min: 44px;
+  --rf-button-min-height: 48px;
+  --rf-reading-measure: 68ch;
+  --rf-radius-sm: 4px;
+  --rf-radius: 8px;
+  --rf-radius-round: 999px;
+  --rf-border-width: 1px;
+  --rf-border-selected: 2px;
+  --rf-shadow-sm: 0 4px 12px rgba(0, 0, 0, .08);
+  --rf-shadow-md: 0 8px 24px rgba(0, 0, 0, .12);
+  --rf-shadow-floating: 0 24px 64px rgba(0, 0, 0, .18);
+  --rf-focus-ring: 0 0 0 2px var(--rf-color-page), 0 0 0 4px var(--rf-color-focus);
+
+  --rf-duration-instant: 50ms;
+  --rf-duration-fast: 150ms;
+  --rf-duration-normal: 250ms;
+  --rf-duration-expand: 300ms;
+  --rf-duration-enter: 400ms;
+  --rf-ease: cubic-bezier(.4, 0, .2, 1);
+  --rf-ease-out: cubic-bezier(0, 0, .2, 1);
+
+  --rf-breakpoint-sm: 375px;
+  --rf-breakpoint-md: 768px;
+  --rf-breakpoint-lg: 1024px;
+  --rf-breakpoint-xl: 1280px;
+  --rf-breakpoint-2xl: 1536px;
+  --rf-canvas-brand: 1920px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --rf-color-brand: #F04458;
+  --rf-color-brand-hover: #FF6575;
+  --rf-color-brand-active: #D72B40;
+  --rf-color-text: #ECECEA;
+  --rf-color-text-secondary: #B8B8B3;
+  --rf-color-text-tertiary: #96968F;
+  --rf-color-text-inverse: #171816;
+  --rf-color-page: #171816;
+  --rf-color-section: #1E1F1C;
+  --rf-color-product: #242521;
+  --rf-color-surface: #20211E;
+  --rf-color-inverse: #ECECEA;
+  --rf-color-border: #666862;
+  --rf-color-border-subtle: #343631;
+  --rf-color-focus: #F04458;
+  --rf-color-overlay: rgba(0, 0, 0, .82);
+  --rf-shadow-sm: 0 4px 12px rgba(0, 0, 0, .28);
+  --rf-shadow-md: 0 8px 24px rgba(0, 0, 0, .36);
+  --rf-shadow-floating: 0 24px 64px rgba(0, 0, 0, .5);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --rf-size-display: 36px;
+    --rf-size-h2: 28px;
+    --rf-size-h3: 24px;
+    --rf-size-h4: 20px;
+    --rf-size-h5: 18px;
+    --rf-size-lede: 18px;
+    --rf-size-body-lg: 16px;
+    --rf-page-gutter: 20px;
+    --rf-grid-gap: 16px;
+    --rf-section-gap: 40px;
+  }
+}
