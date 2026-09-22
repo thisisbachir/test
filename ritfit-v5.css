@@ -1,0 +1,168 @@
+/* RitFit M1 PRO product page — v5 overrides.
+   Loads AFTER the originals and ritfit-v2/v3/v4.css; override/additive rules only.
+   Tokens from ritfit-tokens.css, Montserrat only, transform/opacity/colour animation only. */
+
+.ritfit-system-page .rf-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------- */
+/* 2. Package cards: struck compare-at price beside the price         */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-package-diff.rf-package-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--rf-space-2);
+  white-space: nowrap;
+}
+.ritfit-system-page .rf-package-price del {
+  color: var(--rf-color-text-tertiary);
+  font-size: var(--rf-size-compact);
+  font-weight: var(--rf-weight-medium);
+}
+.ritfit-system-page .rf-package-price b {
+  color: var(--rf-color-text);
+  font-size: var(--rf-size-body);
+  font-weight: var(--rf-weight-semibold);
+}
+
+/* ---------------------------------------------------------------- */
+/* 3. Sticky add-to-cart bar (mobile path uses a class, never [hidden]) */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .mobile-sticky {
+  transform: translateZ(0);
+  will-change: transform;
+}
+@media (max-width: 680px) {
+  /* Visible by default; only .rf-sticky-off (set by v5 while the inline panel is on
+     screen) hides it. Any stray [hidden] from another script is ignored here. */
+  .ritfit-system-page .mobile-sticky,
+  .ritfit-system-page .mobile-sticky[hidden] {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40;
+    display: block;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+  .ritfit-system-page .mobile-sticky.rf-sticky-off,
+  .ritfit-system-page .mobile-sticky.rf-sticky-off[hidden] { display: none; }
+}
+
+/* ---------------------------------------------------------------- */
+/* 4. Gear specs: sticky diagram beside the spec groups               */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page .rf-specs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: var(--rf-space-9);
+  align-items: start;
+}
+.ritfit-system-page .rf-specs-figure {
+  position: sticky;
+  top: 170px;
+  margin: 0;
+}
+.ritfit-system-page .rf-specs-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-product);
+}
+.ritfit-system-page .rf-specs-figure figcaption {
+  margin-top: var(--rf-space-3);
+  color: var(--rf-color-text-secondary);
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page #specifications .rf-specs-layout .spec-grid,
+:is(.ritfit-next-page, .ritfit-system-page) #specifications .rf-specs-layout .spec-grid {
+  display: block;
+  min-width: 0;
+}
+.ritfit-system-page .rf-specs-layout .spec-group:first-child { border-top: 0; }
+
+/* ---------------------------------------------------------------- */
+/* 5. Technical details carousel                                      */
+/* ---------------------------------------------------------------- */
+.ritfit-system-page #details .detail-grid.rf-carousel,
+:is(.ritfit-next-page, .ritfit-system-page) #details .detail-grid.rf-carousel {
+  --rf-carousel-per-view: 4;
+  display: flex;
+  grid-template-columns: none;
+  gap: var(--rf-carousel-gap);
+  border-top: 0;
+}
+.ritfit-system-page #details .detail-grid.rf-carousel > .feature-card,
+:is(.ritfit-next-page, .ritfit-system-page) #details .detail-grid.rf-carousel > .feature-card {
+  display: flex;
+  flex: 0 0 calc((100% - (var(--rf-carousel-per-view) - 1) * var(--rf-carousel-gap)) / var(--rf-carousel-per-view));
+  flex-direction: column;
+  grid-template-columns: none;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  scroll-snap-align: start;
+}
+.ritfit-system-page #details .detail-grid.rf-carousel .feature-media,
+:is(.ritfit-next-page, .ritfit-system-page) #details .detail-grid.rf-carousel .feature-media {
+  grid-row: auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0 0 var(--rf-space-4);
+  overflow: hidden;
+  border-radius: var(--rf-radius);
+  background: var(--rf-color-product);
+}
+.ritfit-system-page #details .detail-grid.rf-carousel .feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ritfit-system-page #details .detail-grid.rf-carousel h3,
+:is(.ritfit-next-page, .ritfit-system-page) #details .detail-grid.rf-carousel .feature-card h3 {
+  margin: 0 0 var(--rf-space-2);
+  font-size: var(--rf-size-body-lg);
+}
+.ritfit-system-page #details .detail-grid.rf-carousel p,
+:is(.ritfit-next-page, .ritfit-system-page) #details .detail-grid.rf-carousel .feature-card p {
+  margin: 0;
+  font-size: var(--rf-size-compact);
+  line-height: var(--rf-leading-compact);
+}
+.ritfit-system-page #details .section-heading.rf-has-carousel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--rf-space-5) var(--rf-space-7);
+}
+
+/* ---------------------------------------------------------------- */
+/* Mobile ≤680px                                                      */
+/* ---------------------------------------------------------------- */
+@media (max-width: 680px) {
+  .ritfit-system-page .rf-specs-layout {
+    grid-template-columns: 1fr;
+    gap: var(--rf-space-6);
+  }
+  .ritfit-system-page .rf-specs-figure { position: static; }
+  .ritfit-system-page #details .detail-grid.rf-carousel > .feature-card,
+  :is(.ritfit-next-page, .ritfit-system-page) #details .detail-grid.rf-carousel > .feature-card {
+    flex: 0 0 calc(83.333% - var(--rf-carousel-gap));
+  }
+  .ritfit-system-page #details .section-heading.rf-has-carousel { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ritfit-system-page .mobile-sticky { will-change: auto; }
+}
