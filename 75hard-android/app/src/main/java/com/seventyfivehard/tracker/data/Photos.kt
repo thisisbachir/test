@@ -22,14 +22,16 @@ object Photos {
     fun uriFor(context: Context, file: File): Uri =
         FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
 
-    fun copyFrom(context: Context, source: Uri, date: LocalDate): File? = try {
+    fun copyFrom(context: Context, source: Uri, date: LocalDate): File? {
         val target = newFile(context, date)
-        context.contentResolver.openInputStream(source)?.use { input ->
-            target.outputStream().use { input.copyTo(it) }
-        } ?: return null
-        target
-    } catch (e: Exception) {
-        null
+        return try {
+            val input = context.contentResolver.openInputStream(source) ?: return null
+            input.use { target.outputStream().use { out -> it.copyTo(out) } }
+            target
+        } catch (e: Exception) {
+            target.delete()
+            null
+        }
     }
 
     fun delete(context: Context, name: String?) {
