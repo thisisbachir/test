@@ -39,6 +39,20 @@ jobs:
           name: 75hard-apk
           path: 75hard-android/75hard.apk
 
+      # Keep the newest APK on its own branch: a stable link to download it straight onto a phone.
+      - name: Push APK to the 75hard-apk branch
+        working-directory: ${{ runner.temp }}
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          mkdir apk-branch && cd apk-branch
+          git init -q -b 75hard-apk
+          cp "$GITHUB_WORKSPACE/75hard-android/75hard.apk" .
+          printf '# 75 Hard APK\n\nBuilt from %s (%s), run #%s.\n' "$GITHUB_REF_NAME" "${GITHUB_SHA::7}" "$GITHUB_RUN_NUMBER" > README.md
+          git add .
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -q -m "APK from ${GITHUB_SHA::7}"
+          git push -f -q "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" 75hard-apk
+
       # Builds from the default branch also refresh a download link on the Releases page.
       - name: Publish latest APK
         if: github.ref_name == github.event.repository.default_branch

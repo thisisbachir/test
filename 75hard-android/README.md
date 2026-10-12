@@ -26,7 +26,7 @@ A private, offline Android app for tracking the 75 Hard challenge.
 The GitHub Actions workflow `.github/workflows/75hard-android.yml` builds a signed APK on every push that touches this folder:
 
 1. Open the repo's **Actions** tab → **75 Hard Android app** → the latest run → download the `75hard-apk` artifact (a zip containing `75hard.apk`).
-2. Builds from the default branch also publish `75hard.apk` under **Releases → 75 Hard tracker (latest)**. This is the easiest place to download it straight onto your phone.
+2. Every build also pushes the APK to the `75hard-apk` branch: open `https://github.com/<owner>/<repo>/raw/75hard-apk/75hard.apk` on your phone to download it directly. Builds from the default branch also publish `75hard.apk` under **Releases → 75 Hard tracker (latest)**. This is the easiest place to download it straight onto your phone.
 3. On the phone, open the APK and allow "Install unknown apps" for your browser or file manager when Android asks.
 
 Every build is signed with the same key (`app/signing/tracker.jks`), so new versions install over the old one without losing data. Never uninstall the app unless you've exported a backup: uninstalling deletes its private data.
