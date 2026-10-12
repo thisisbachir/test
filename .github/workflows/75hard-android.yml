@@ -1,0 +1,51 @@
+name: 75 Hard Android app
+
+on:
+  push:
+    paths:
+      - "75hard-android/**"
+      - ".github/workflows/75hard-android.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 75hard-android
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Unit tests and APK
+        env:
+          VERSION_CODE: ${{ github.run_number }}
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon testReleaseUnitTest assembleRelease
+          cp app/build/outputs/apk/release/app-release.apk 75hard.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 75hard-apk
+          path: 75hard-android/75hard.apk
+
+      # Builds from the default branch also refresh a download link on the Releases page.
+      - name: Publish latest APK
+        if: github.ref_name == github.event.repository.default_branch
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: 75hard-latest
+          name: 75 Hard tracker (latest)
+          body: Install 75hard.apk on your Android phone. Updates install over the old version and keep your data.
+          prerelease: true
+          files: 75hard-android/75hard.apk
